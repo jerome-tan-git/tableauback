@@ -1,0 +1,1339 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 8200.14.0819.2015                                -->
+<workbook source-platform='win' version='8.3' xml:base='https://external-analyze.ask.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <repository-location derived-from='http://tableau001.vcbrands.net/workbooks/Trend?rev=1.1' id='Trend' path='/t/investopedia/workbooks' revision='1.0' site='investopedia' />
+  <preferences />
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='8.3'>
+      <aliases enabled='yes' />
+      <column caption='Target' datatype='real' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='15.0'>
+        <calculation class='tableau' formula='15.0' />
+      </column>
+    </datasource>
+    <datasource inline='true' name='cms (Extract)' version='8.3'>
+      <repository-location derived-from='/datasources/cmsExtract?rev=1.9' id='cmsExtract' path='/t/investopedia/datasources' revision='1.0' site='investopedia' />
+      <connection channel='https' class='sqlproxy' dbname='cmsExtract' directory='dataserver' port='443' server='external-analyze.ask.com' server-oauth='' username='tanj' workgroup-auth-mode='prompt'>
+        <relation name='sqlproxy' table='[sqlproxy]' type='table' />
+        <calculations>
+          <calculation column='[Calculation_0350905185542366]' formula='DATEDIFF(&apos;day&apos;, [orgtimeid], TODAY() )' />
+          <calculation column='[Calculation_1160911185501600]' formula='sum(IF [monthtoroi]&gt;=1 then 0 else 1 end)/sum(1)' />
+          <calculation column='[Calculation_1730905194145639]' formula='SUM([totalorganicrev] )/SUM([totalcost] )' />
+          <calculation column='[Calculation_6170911184941291]' formula='1' />
+          <calculation column='[Calculation_6190911185103675]' formula='IF [monthtoroi]&gt;=1 then 0 else 1 end' />
+          <calculation column='[Calculation_7250905194249223]' formula='(sum([totalcost])-sum([totalorganicrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))' />
+          <calculation column='[Calculation_7790905192442269]' formula='(sum([totalcost])-sum([totalrev]))/(sum([totalrev])/max([Calculation_0350905185542366]))' />
+          <calculation column='[Calculation_8010905193550807]' formula='SUM([totalrev] )/SUM([totalcost] )' />
+          <calculation column='[Calculation_8650905194403646]' formula='(sum([totalcost])-sum([totalrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))' />
+          <calculation column='[Number of Records]' formula='1' />
+        </calculations>
+        <metadata-records>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_0350905185542366</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[Calculation_0350905185542366]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_0350905185542366</remote-alias>
+            <ordinal>41</ordinal>
+            <layered>true</layered>
+            <caption>DaysLive (Origianl Site Date)</caption>
+            <local-type>integer</local-type>
+            <aggregation>Max</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;DATEDIFF(&apos;day&apos;, [orgtimeid], TODAY() )&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_1160911185501600</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[Calculation_1160911185501600]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_1160911185501600</remote-alias>
+            <ordinal>42</ordinal>
+            <layered>true</layered>
+            <caption>% URLs not yet ROI</caption>
+            <local-type>real</local-type>
+            <aggregation>User</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;sum(IF [monthtoroi]&gt;=1 then 0 else 1 end)/sum(1)&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_1730905194145639</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[Calculation_1730905194145639]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_1730905194145639</remote-alias>
+            <ordinal>43</ordinal>
+            <layered>true</layered>
+            <caption>Organic Return</caption>
+            <local-type>real</local-type>
+            <aggregation>User</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;SUM([totalorganicrev] )/SUM([totalcost] )&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_6170911184941291</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[Calculation_6170911184941291]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_6170911184941291</remote-alias>
+            <ordinal>44</ordinal>
+            <layered>true</layered>
+            <caption>Total URLs</caption>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;1&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_6190911185103675</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[Calculation_6190911185103675]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_6190911185103675</remote-alias>
+            <ordinal>45</ordinal>
+            <layered>true</layered>
+            <caption># URLs not yet ROI</caption>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;IF [monthtoroi]&gt;=1 then 0 else 1 end&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_7250905194249223</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[Calculation_7250905194249223]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_7250905194249223</remote-alias>
+            <ordinal>46</ordinal>
+            <layered>true</layered>
+            <caption>Org Rem DTE</caption>
+            <local-type>real</local-type>
+            <aggregation>User</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;(sum([totalcost])-sum([totalorganicrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_7790905192442269</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[Calculation_7790905192442269]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_7790905192442269</remote-alias>
+            <ordinal>47</ordinal>
+            <layered>true</layered>
+            <caption>Total Days To Even</caption>
+            <local-type>real</local-type>
+            <aggregation>User</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;(sum([totalcost])-sum([totalrev]))/(sum([totalrev])/max([Calculation_0350905185542366]))&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_8010905193550807</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[Calculation_8010905193550807]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_8010905193550807</remote-alias>
+            <ordinal>48</ordinal>
+            <layered>true</layered>
+            <caption>Total Return</caption>
+            <local-type>real</local-type>
+            <aggregation>User</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;SUM([totalrev] )/SUM([totalcost] )&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Calculation_8650905194403646</remote-name>
+            <remote-type>-1</remote-type>
+            <local-name>[Calculation_8650905194403646]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Calculation_8650905194403646</remote-alias>
+            <ordinal>49</ordinal>
+            <layered>true</layered>
+            <caption>Rem DTE</caption>
+            <local-type>real</local-type>
+            <aggregation>User</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;(sum([totalcost])-sum([totalrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>DTErecord</remote-name>
+            <remote-type>2</remote-type>
+            <local-name>[DTErecord]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>DTErecord</remote-alias>
+            <ordinal>2</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>EditingCost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[EditingCost]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>EditingCost</remote-alias>
+            <ordinal>3</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>FinrevCost</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[FinrevCost]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>FinrevCost</remote-alias>
+            <ordinal>4</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>GramrevCost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[GramrevCost]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>GramrevCost</remote-alias>
+            <ordinal>5</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Number of Records</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[Number of Records]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Number of Records</remote-alias>
+            <ordinal>50</ordinal>
+            <layered>true</layered>
+            <caption>Number of Records</caption>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;1&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>ProductionCost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ProductionCost]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>ProductionCost</remote-alias>
+            <ordinal>7</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Tags</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Tags]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Tags</remote-alias>
+            <ordinal>8</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1024</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Timelessness</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Timelessness]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Timelessness</remote-alias>
+            <ordinal>9</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>32</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>Wordcount</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Wordcount]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Wordcount</remote-alias>
+            <ordinal>10</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>WritingCost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[WritingCost]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>WritingCost</remote-alias>
+            <ordinal>11</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adchannel</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[adchannel]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adchannel</remote-alias>
+            <ordinal>12</ordinal>
+            <layered>true</layered>
+            <caption>Adchannel</caption>
+            <family>dim_adchannel</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>32</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>assignededitor</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[assignededitor]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>assignededitor</remote-alias>
+            <ordinal>13</ordinal>
+            <layered>true</layered>
+            <caption>Assignededitor</caption>
+            <family>dim_assignededitor</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>32</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>author</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[author]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>author</remote-alias>
+            <ordinal>14</ordinal>
+            <layered>true</layered>
+            <caption>Author</caption>
+            <family>dim_author</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>48</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>channel</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[channel]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>channel</remote-alias>
+            <ordinal>15</ordinal>
+            <layered>true</layered>
+            <caption>Channel</caption>
+            <family>dim_channel</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>32</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contenttype</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[contenttype]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>contenttype</remote-alias>
+            <ordinal>16</ordinal>
+            <layered>true</layered>
+            <caption>Contenttype</caption>
+            <family>dim_contenttype</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>32</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dfptarget</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[dfptarget]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>dfptarget</remote-alias>
+            <ordinal>17</ordinal>
+            <layered>true</layered>
+            <caption>Dfptarget</caption>
+            <family>dim_dfptarget</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>keywords</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[keywords]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>keywords</remote-alias>
+            <ordinal>18</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1024</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>monthtoroi</remote-name>
+            <remote-type>2</remote-type>
+            <local-name>[monthtoroi]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>monthtoroi</remote-alias>
+            <ordinal>19</ordinal>
+            <layered>true</layered>
+            <caption>Month to ROI</caption>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>orgtimeid</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[orgtimeid]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>orgtimeid</remote-alias>
+            <ordinal>20</ordinal>
+            <layered>true</layered>
+            <caption>OriginalSiteDate</caption>
+            <family>fact_cms</family>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>1</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>pageviewtoroi</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[pageviewtoroi]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>pageviewtoroi</remote-alias>
+            <ordinal>21</ordinal>
+            <layered>true</layered>
+            <caption>PVs to ROI</caption>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pubtimeid</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[pubtimeid]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>pubtimeid</remote-alias>
+            <ordinal>22</ordinal>
+            <layered>true</layered>
+            <caption>Pass3PubDate</caption>
+            <family>fact_cms</family>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>1</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>seoStandout</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[seoStandout]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>seoStandout</remote-alias>
+            <ordinal>23</ordinal>
+            <layered>true</layered>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>subadchannel</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[subadchannel]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>subadchannel</remote-alias>
+            <ordinal>24</ordinal>
+            <layered>true</layered>
+            <caption>Subadchannel</caption>
+            <family>dim_adchannel</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>32</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>subchannel</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[subchannel]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>subchannel</remote-alias>
+            <ordinal>25</ordinal>
+            <layered>true</layered>
+            <caption>Subchannel</caption>
+            <family>dim_channel</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[title]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>title</remote-alias>
+            <ordinal>26</ordinal>
+            <layered>true</layered>
+            <caption>Title</caption>
+            <family>fact_cms</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1024</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalcost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totalcost]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalcost</remote-alias>
+            <ordinal>27</ordinal>
+            <layered>true</layered>
+            <caption>Total Cost</caption>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totaldirectpv</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[totaldirectpv]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totaldirectpv</remote-alias>
+            <ordinal>28</ordinal>
+            <layered>true</layered>
+            <caption>Direct PV</caption>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totaldirectrev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totaldirectrev]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totaldirectrev</remote-alias>
+            <ordinal>29</ordinal>
+            <layered>true</layered>
+            <caption>Direct Rev</caption>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalemailpv</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[totalemailpv]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalemailpv</remote-alias>
+            <ordinal>30</ordinal>
+            <layered>true</layered>
+            <caption>Email PV</caption>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalemailrev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totalemailrev]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalemailrev</remote-alias>
+            <ordinal>31</ordinal>
+            <layered>true</layered>
+            <caption>Email Rev</caption>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalorganicpv</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[totalorganicpv]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalorganicpv</remote-alias>
+            <ordinal>32</ordinal>
+            <layered>true</layered>
+            <caption>Organic PV</caption>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalorganicrev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totalorganicrev]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalorganicrev</remote-alias>
+            <ordinal>33</ordinal>
+            <layered>true</layered>
+            <caption>Organic Rev</caption>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalpv</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[totalpv]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalpv</remote-alias>
+            <ordinal>34</ordinal>
+            <layered>true</layered>
+            <caption>Total PV</caption>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalreferralpv</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[totalreferralpv]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalreferralpv</remote-alias>
+            <ordinal>35</ordinal>
+            <layered>true</layered>
+            <caption>Referral PV</caption>
+            <family>fact_cms</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalreferralrev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totalreferralrev]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalreferralrev</remote-alias>
+            <ordinal>36</ordinal>
+            <layered>true</layered>
+            <caption>Referral Rev</caption>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>totalrev</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totalrev]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>totalrev</remote-alias>
+            <ordinal>37</ordinal>
+            <layered>true</layered>
+            <caption>Total Est Rev</caption>
+            <family>fact_cms</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>url</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[url]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>url</remote-alias>
+            <ordinal>38</ordinal>
+            <layered>true</layered>
+            <caption>Url</caption>
+            <family>fact_cms</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1024</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='boolean' name='CAP_64BIT_CALCULATIONS'>true</attribute>
+              <attribute datatype='boolean' name='CAP_QUERY_SORT_BY'>true</attribute>
+              <attribute datatype='boolean' name='CAP_QUERY_SUBQUERIES'>true</attribute>
+              <attribute datatype='boolean' name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT'>true</attribute>
+              <attribute datatype='integer' name='charset'>0</attribute>
+              <attribute datatype='string' name='class'>&quot;dataengine&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;binary&quot;</attribute>
+              <attribute datatype='string' name='datasource'>&quot;&lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos; ?&gt;&#10;&#10;&lt;datasource :source-version=&apos;8.3&apos; formatted-name=&apos;repoItem2881731979286149316&apos; inline=&apos;true&apos; version=&apos;8.3&apos; xmlns:user=&apos;http://www.tableausoftware.com/xml/user&apos;&gt;&#10;  &lt;repository-location derived-from=&apos;/datasources/cmsExtract?rev=1.9&apos; id=&apos;cmsExtract&apos; path=&apos;/t/investopedia/datasources&apos; revision=&apos;1.0&apos; site=&apos;investopedia&apos; /&gt;&#10;  &lt;connection channel=&apos;https&apos; class=&apos;sqlproxy&apos; dbname=&apos;cmsExtract&apos; directory=&apos;dataserver&apos; password=&apos;123!@\#QWEqwe&apos; port=&apos;443&apos; server=&apos;external-analyze.ask.com&apos; server-userid=&apos;393&apos; username=&apos;tanj&apos;&gt;&#10;    &lt;relation name=&apos;sqlproxy&apos; table=&apos;[sqlproxy]&apos; type=&apos;table&apos; /&gt;&#10;    &lt;cols&gt;&#10;      &lt;map key=&apos;[Calculation_0350905185542366]&apos; value=&apos;[sqlproxy].[Calculation_0350905185542366]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_1160911185501600]&apos; value=&apos;[sqlproxy].[Calculation_1160911185501600]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_1730905194145639]&apos; value=&apos;[sqlproxy].[Calculation_1730905194145639]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_6170911184941291]&apos; value=&apos;[sqlproxy].[Calculation_6170911184941291]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_6190911185103675]&apos; value=&apos;[sqlproxy].[Calculation_6190911185103675]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_7250905194249223]&apos; value=&apos;[sqlproxy].[Calculation_7250905194249223]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_7790905192442269]&apos; value=&apos;[sqlproxy].[Calculation_7790905192442269]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_8010905193550807]&apos; value=&apos;[sqlproxy].[Calculation_8010905193550807]&apos; /&gt;&#10;      &lt;map key=&apos;[Calculation_8650905194403646]&apos; value=&apos;[sqlproxy].[Calculation_8650905194403646]&apos; /&gt;&#10;      &lt;map key=&apos;[DTErecord]&apos; value=&apos;[sqlproxy].[DTErecord]&apos; /&gt;&#10;      &lt;map key=&apos;[EditingCost]&apos; value=&apos;[sqlproxy].[EditingCost]&apos; /&gt;&#10;      &lt;map key=&apos;[FinrevCost]&apos; value=&apos;[sqlproxy].[FinrevCost]&apos; /&gt;&#10;      &lt;map key=&apos;[GramrevCost]&apos; value=&apos;[sqlproxy].[GramrevCost]&apos; /&gt;&#10;      &lt;map key=&apos;[Number of Records]&apos; value=&apos;[sqlproxy].[Number of Records]&apos; /&gt;&#10;      &lt;map key=&apos;[ProductionCost]&apos; value=&apos;[sqlproxy].[ProductionCost]&apos; /&gt;&#10;      &lt;map key=&apos;[Tags]&apos; value=&apos;[sqlproxy].[Tags]&apos; /&gt;&#10;      &lt;map key=&apos;[Timelessness]&apos; value=&apos;[sqlproxy].[Timelessness]&apos; /&gt;&#10;      &lt;map key=&apos;[Wordcount]&apos; value=&apos;[sqlproxy].[Wordcount]&apos; /&gt;&#10;      &lt;map key=&apos;[WritingCost]&apos; value=&apos;[sqlproxy].[WritingCost]&apos; /&gt;&#10;      &lt;map key=&apos;[adchannel]&apos; value=&apos;[sqlproxy].[adchannel]&apos; /&gt;&#10;      &lt;map key=&apos;[assignededitor]&apos; value=&apos;[sqlproxy].[assignededitor]&apos; /&gt;&#10;      &lt;map key=&apos;[author]&apos; value=&apos;[sqlproxy].[author]&apos; /&gt;&#10;      &lt;map key=&apos;[channel]&apos; value=&apos;[sqlproxy].[channel]&apos; /&gt;&#10;      &lt;map key=&apos;[contenttype]&apos; value=&apos;[sqlproxy].[contenttype]&apos; /&gt;&#10;      &lt;map key=&apos;[dfptarget]&apos; value=&apos;[sqlproxy].[dfptarget]&apos; /&gt;&#10;      &lt;map key=&apos;[keywords]&apos; value=&apos;[sqlproxy].[keywords]&apos; /&gt;&#10;      &lt;map key=&apos;[monthtoroi]&apos; value=&apos;[sqlproxy].[monthtoroi]&apos; /&gt;&#10;      &lt;map key=&apos;[orgtimeid]&apos; value=&apos;[sqlproxy].[orgtimeid]&apos; /&gt;&#10;      &lt;map key=&apos;[pageviewtoroi]&apos; value=&apos;[sqlproxy].[pageviewtoroi]&apos; /&gt;&#10;      &lt;map key=&apos;[pubtimeid]&apos; value=&apos;[sqlproxy].[pubtimeid]&apos; /&gt;&#10;      &lt;map key=&apos;[seoStandout]&apos; value=&apos;[sqlproxy].[seoStandout]&apos; /&gt;&#10;      &lt;map key=&apos;[subadchannel]&apos; value=&apos;[sqlproxy].[subadchannel]&apos; /&gt;&#10;      &lt;map key=&apos;[subchannel]&apos; value=&apos;[sqlproxy].[subchannel]&apos; /&gt;&#10;      &lt;map key=&apos;[title]&apos; value=&apos;[sqlproxy].[title]&apos; /&gt;&#10;      &lt;map key=&apos;[totalcost]&apos; value=&apos;[sqlproxy].[totalcost]&apos; /&gt;&#10;      &lt;map key=&apos;[totaldirectpv]&apos; value=&apos;[sqlproxy].[totaldirectpv]&apos; /&gt;&#10;      &lt;map key=&apos;[totaldirectrev]&apos; value=&apos;[sqlproxy].[totaldirectrev]&apos; /&gt;&#10;      &lt;map key=&apos;[totalemailpv]&apos; value=&apos;[sqlproxy].[totalemailpv]&apos; /&gt;&#10;      &lt;map key=&apos;[totalemailrev]&apos; value=&apos;[sqlproxy].[totalemailrev]&apos; /&gt;&#10;      &lt;map key=&apos;[totalorganicpv]&apos; value=&apos;[sqlproxy].[totalorganicpv]&apos; /&gt;&#10;      &lt;map key=&apos;[totalorganicrev]&apos; value=&apos;[sqlproxy].[totalorganicrev]&apos; /&gt;&#10;      &lt;map key=&apos;[totalpv]&apos; value=&apos;[sqlproxy].[totalpv]&apos; /&gt;&#10;      &lt;map key=&apos;[totalreferralpv]&apos; value=&apos;[sqlproxy].[totalreferralpv]&apos; /&gt;&#10;      &lt;map key=&apos;[totalreferralrev]&apos; value=&apos;[sqlproxy].[totalreferralrev]&apos; /&gt;&#10;      &lt;map key=&apos;[totalrev]&apos; value=&apos;[sqlproxy].[totalrev]&apos; /&gt;&#10;      &lt;map key=&apos;[url]&apos; value=&apos;[sqlproxy].[url]&apos; /&gt;&#10;    &lt;/cols&gt;&#10;  &lt;/connection&gt;&#10;  &lt;aliases enabled=&apos;yes&apos; /&gt;&#10;  &lt;column aggregation=&apos;Max&apos; caption=&apos;DaysLive (Origianl Site Date)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_0350905185542366]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;DATEDIFF(&amp;apos;day&amp;apos;, [orgtimeid], TODAY() )&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;User&apos; caption=&apos;\% URLs not yet ROI&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_1160911185501600]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;sum(IF [monthtoroi]&amp;gt;=1 then 0 else 1 end)/sum(1)&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;User&apos; caption=&apos;Organic Return&apos; datatype=&apos;real&apos; default-format=&apos;n\#,\#\#0.000;-\#,\#\#0.000&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_1730905194145639]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;SUM([totalorganicrev] )/SUM([totalcost] )&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Total URLs&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_6170911184941291]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;1&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;\# URLs not yet ROI&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_6190911185103675]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;IF [monthtoroi]&amp;gt;=1 then 0 else 1 end&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;User&apos; caption=&apos;Org Rem DTE&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_7250905194249223]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;(sum([totalcost])-sum([totalorganicrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;User&apos; caption=&apos;Total Days To Even&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_7790905192442269]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;(sum([totalcost])-sum([totalrev]))/(sum([totalrev])/max([Calculation_0350905185542366]))&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;User&apos; caption=&apos;Total Return&apos; datatype=&apos;real&apos; default-format=&apos;n\#,\#\#0.0000;-\#,\#\#0.0000&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_8010905193550807]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;SUM([totalrev] )/SUM([totalcost] )&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;User&apos; caption=&apos;Rem DTE&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[Calculation_8650905194403646]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;(sum([totalcost])-sum([totalrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))&apos; scope-isolation=&apos;false&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[Number of Records]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; user:auto-column=&apos;numrec&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;1&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Adchannel&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[adchannel]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adchannelid (Dim Adchannel)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[adchannelid (dim_adchannel)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[adchannelid1]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adchannelid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[adchannelid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Assignededitor&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[assignededitor]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Assignededitorid (Dim Assignededitor)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[assignededitorid (dim_assignededitor)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[assignededitorid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Author&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[author]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Authorid (Dim Author)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[authorid (dim_author)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[authorid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Channel&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[channel]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Channelid (Dim Channel)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[channelid (dim_channel)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[channelid1]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Channelid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[channelid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Contenttype&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[contenttype]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Contenttypeid (Dim Contenttype)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[contenttypeid (dim_contenttype)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[contenttypeid1]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Contenttypeid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[contenttypeid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Dfptarget&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[dfptarget]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Dfptargetid (Dim Dfptarget)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[dfptargetid (dim_dfptarget)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[dfptargetid1]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Dfptargetid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[dfptargetid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Id&apos; datatype=&apos;integer&apos; default-type=&apos;ordinal&apos; hidden=&apos;true&apos; name=&apos;[id]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Year&apos; caption=&apos;Maxdate&apos; datatype=&apos;date&apos; default-type=&apos;ordinal&apos; hidden=&apos;true&apos; name=&apos;[maxdate]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;date&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Month to ROI&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[monthtoroi]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Year&apos; caption=&apos;OriginalSiteDate&apos; datatype=&apos;date&apos; default-type=&apos;ordinal&apos; name=&apos;[orgtimeid]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;date&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;PVs to ROI&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[pageviewtoroi]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Year&apos; caption=&apos;Pass3PubDate&apos; datatype=&apos;date&apos; default-type=&apos;ordinal&apos; name=&apos;[pubtimeid]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;date&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Subadchannel&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[subadchannel]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Subchannel&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[subchannel]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Title&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[title]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Total Cost&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[totalcost]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Direct PV&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[totaldirectpv]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Direct Rev&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[totaldirectrev]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Email PV&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[totalemailpv]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Email Rev&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[totalemailrev]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Organic PV&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[totalorganicpv]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Organic Rev&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[totalorganicrev]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Total PV&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[totalpv]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Referral PV&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[totalreferralpv]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Referral Rev&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[totalreferralrev]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Total Est Rev&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[totalrev]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Url&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[url]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;layout dim-ordering=&apos;alphabetic&apos; dim-percentage=&apos;0.32664&apos; measure-ordering=&apos;alphabetic&apos; measure-percentage=&apos;0.645248&apos; show-structure=&apos;true&apos; /&gt;&#10;  &lt;semantic-values&gt;&#10;    &lt;semantic-value key=&apos;[Country].[Name]&apos; value=&apos;&amp;quot;United States&amp;quot;&apos; /&gt;&#10;  &lt;/semantic-values&gt;&#10;&lt;/datasource&gt;&#10;&quot;</attribute>
+              <attribute datatype='boolean' name='extract-active'>true</attribute>
+              <attribute datatype='string' name='update-time'>&quot;3/10/2015 9:30:46 AM&quot;</attribute>
+              <attribute datatype='string' name='version'>&quot;0.0.0&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Editors (grouped)' datatype='string' name='[Assignededitor (group)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[assignededitor]'>
+          <bin value='&quot;Alexandra Kerr&quot;'>
+            <value>&quot;Alexandra Kerr&quot;</value>
+            <value>&quot;David Rodriguez&quot;</value>
+            <value>&quot;Doug Cubberley&quot;</value>
+            <value>&quot;Euny Hong&quot;</value>
+            <value>&quot;Julia Kagan&quot;</value>
+            <value>&quot;William G. Kenton III, PhD&quot;</value>
+          </bin>
+        </calculation>
+      </column>
+      <column caption='BE (agg)' datatype='boolean' name='[BE (copy)]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='sum([totalrev])&gt;sum([totalcost])' scope-isolation='false' />
+      </column>
+      <column aggregation='Max' caption='DaysLive (Origianl Site Date)' datatype='integer' default-type='quantitative' layered='true' name='[Calculation_0350905185542366]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default'>
+        <calculation class='tableau' formula='DATEDIFF(&apos;day&apos;, [orgtimeid], TODAY() )' scope-isolation='false' />
+      </column>
+      <column aggregation='User' caption='% URLs not yet ROI' datatype='real' default-type='quantitative' layered='true' name='[Calculation_1160911185501600]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default'>
+        <calculation class='tableau' formula='sum(IF [monthtoroi]&gt;=1 then 0 else 1 end)/sum(1)' scope-isolation='false' />
+      </column>
+      <column aggregation='User' caption='Organic Return' datatype='real' default-format='n#,##0.000;-#,##0.000' default-type='quantitative' layered='true' name='[Calculation_1730905194145639]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default'>
+        <calculation class='tableau' formula='SUM([totalorganicrev] )/SUM([totalcost] )' scope-isolation='false' />
+      </column>
+      <column caption='Rev per word' datatype='real' name='[Calculation_1871203132249016]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[totalrev]/[Wordcount]' scope-isolation='false' />
+      </column>
+      <column caption='BE' datatype='boolean' name='[Calculation_5611202125403940]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[totalrev]&gt;[totalcost]' scope-isolation='false' />
+      </column>
+      <column caption='Org Rate (i)' datatype='real' name='[Calculation_5761204142309940]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[totalorganicrev]/[Calculation_0350905185542366]' scope-isolation='false' />
+      </column>
+      <column aggregation='Sum' caption='Total URLs' datatype='integer' default-type='quantitative' layered='true' name='[Calculation_6170911184941291]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default'>
+        <calculation class='tableau' formula='1' scope-isolation='false' />
+      </column>
+      <column aggregation='Sum' caption='# URLs not yet ROI' datatype='integer' default-type='quantitative' layered='true' name='[Calculation_6190911185103675]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default'>
+        <calculation class='tableau' formula='IF [monthtoroi]&gt;=1 then 0 else 1 end' scope-isolation='false' />
+      </column>
+      <column aggregation='User' caption='Org Rem DTE' datatype='real' default-type='quantitative' layered='true' name='[Calculation_7250905194249223]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default'>
+        <calculation class='tableau' formula='(sum([totalcost])-sum([totalorganicrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))' scope-isolation='false' />
+      </column>
+      <column aggregation='User' caption='Total Days To Even' datatype='real' default-type='quantitative' layered='true' name='[Calculation_7790905192442269]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default'>
+        <calculation class='tableau' formula='(sum([totalcost])-sum([totalrev]))/(sum([totalrev])/max([Calculation_0350905185542366]))' scope-isolation='false' />
+      </column>
+      <column aggregation='User' caption='Total Return' datatype='real' default-format='n#,##0.0000;-#,##0.0000' default-type='quantitative' layered='true' name='[Calculation_8010905193550807]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default'>
+        <calculation class='tableau' formula='SUM([totalrev] )/SUM([totalcost] )' scope-isolation='false' />
+      </column>
+      <column aggregation='User' caption='Rem DTE' datatype='real' default-type='quantitative' layered='true' name='[Calculation_8650905194403646]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default'>
+        <calculation class='tableau' formula='(sum([totalcost])-sum([totalrev]))/(sum([totalorganicrev])/max([Calculation_0350905185542366]))' scope-isolation='false' />
+      </column>
+      <column caption='DTE (agg)' datatype='real' name='[DTE (agg avg,max) (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='((sum([totalcost])-sum([totalrev]))/sum([Calculation_5761204142309940]))+median([Calculation_0350905185542366])' scope-isolation='false' />
+      </column>
+      <column caption='DTE (i)' datatype='real' name='[DTE (agg) (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if ([totalrev]) &gt; ([totalcost]) then ([DTErecord]) else&#13;&#10;(([totalcost]) - ([totalrev]))/(([totalorganicrev])/([Calculation_0350905185542366])) + [Calculation_0350905185542366]&#13;&#10;end' scope-isolation='false' />
+      </column>
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' layered='true' name='[DTErecord]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='real' default-type='quantitative' layered='true' name='[EditingCost]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' datatype='real' default-type='quantitative' layered='true' name='[FinrevCost]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' datatype='real' default-type='quantitative' layered='true' name='[GramrevCost]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' layered='true' name='[Number of Records]' pivot='key' role='measure' type='quantitative' user-datatype='integer' user:auto-column='numrec' visual-totals='Default'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Org DTE (agg)' datatype='real' name='[Org Rem DTE (agg) (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(sum([totalcost])-sum([totalorganicrev]))/sum([Calculation_5761204142309940]) + median([Calculation_0350905185542366])' scope-isolation='false' />
+      </column>
+      <column caption='Org Rem DTE (agg)' datatype='real' name='[Org Rem DTE (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(sum([totalcost])-sum([totalorganicrev]))/sum([Calculation_5761204142309940])' scope-isolation='false' />
+      </column>
+      <column aggregation='Sum' datatype='real' default-type='quantitative' layered='true' name='[ProductionCost]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column caption='Rem DTE (agg)' datatype='real' name='[Rem DTE (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(sum([totalcost])-sum([totalrev]))/sum([Calculation_5761204142309940])' scope-isolation='false' />
+      </column>
+      <column caption='Cost per word' datatype='real' name='[Rev per word (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[totalcost]/[Wordcount]' scope-isolation='false' />
+      </column>
+      <column aggregation='Count' datatype='string' default-type='nominal' layered='true' name='[Tags]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Count' datatype='string' default-type='nominal' layered='true' name='[Timelessness]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column caption='Wordcount (bin)' datatype='integer' name='[Wordcount (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='2' formula='[Wordcount]' peg='0' size='100' />
+      </column>
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' layered='true' name='[Wordcount]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='real' default-type='quantitative' layered='true' name='[WritingCost]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Count' caption='Adchannel' datatype='string' default-type='nominal' layered='true' name='[adchannel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adchannelid (Dim Adchannel)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[adchannelid (dim_adchannel)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[adchannelid1]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adchannelid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[adchannelid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Assignededitor' datatype='string' default-type='nominal' layered='true' name='[assignededitor]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Assignededitorid (Dim Assignededitor)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[assignededitorid (dim_assignededitor)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[assignededitorid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Author' datatype='string' default-type='nominal' layered='true' name='[author]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Authorid (Dim Author)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[authorid (dim_author)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[authorid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Channel' datatype='string' default-type='nominal' layered='true' name='[channel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Channelid (Dim Channel)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[channelid (dim_channel)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[channelid1]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Channelid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[channelid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Contenttype' datatype='string' default-type='nominal' layered='true' name='[contenttype]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Contenttypeid (Dim Contenttype)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[contenttypeid (dim_contenttype)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[contenttypeid1]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Contenttypeid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[contenttypeid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Dfptarget' datatype='string' default-type='nominal' layered='true' name='[dfptarget]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Dfptargetid (Dim Dfptarget)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[dfptargetid (dim_dfptarget)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[dfptargetid1]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Dfptargetid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[dfptargetid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Id' datatype='integer' default-type='ordinal' hidden='true' layered='true' name='[id]' pivot='key' role='dimension' type='ordinal' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' datatype='string' default-type='nominal' layered='true' name='[keywords]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Year' caption='Maxdate' datatype='date' default-type='ordinal' hidden='true' layered='true' name='[maxdate]' pivot='key' role='dimension' type='ordinal' user-datatype='date' visual-totals='Default' />
+      <column aggregation='Count' caption='Month to ROI' datatype='integer' default-type='quantitative' layered='true' name='[monthtoroi]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Year' caption='OriginalSiteDate' datatype='date' default-type='ordinal' layered='true' name='[orgtimeid]' pivot='key' role='dimension' type='ordinal' user-datatype='date' visual-totals='Default' />
+      <column aggregation='Count' caption='PVs to ROI' datatype='integer' default-type='quantitative' layered='true' name='[pageviewtoroi]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Year' caption='Pass3PubDate' datatype='date' default-type='ordinal' layered='true' name='[pubtimeid]' pivot='key' role='dimension' type='ordinal' user-datatype='date' visual-totals='Default' />
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' layered='true' name='[seoStandout]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Subadchannel' datatype='string' default-type='nominal' layered='true' name='[subadchannel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Count' caption='Subchannel' datatype='string' default-type='nominal' layered='true' name='[subchannel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Count' caption='Title' datatype='string' default-type='nominal' layered='true' name='[title]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Total Cost' datatype='real' default-type='quantitative' layered='true' name='[totalcost]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' caption='Direct PV' datatype='integer' default-type='quantitative' layered='true' name='[totaldirectpv]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Direct Rev' datatype='real' default-type='quantitative' layered='true' name='[totaldirectrev]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' caption='Email PV' datatype='integer' default-type='quantitative' layered='true' name='[totalemailpv]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Email Rev' datatype='real' default-type='quantitative' layered='true' name='[totalemailrev]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' caption='Organic PV' datatype='integer' default-type='quantitative' layered='true' name='[totalorganicpv]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Organic Rev' datatype='real' default-type='quantitative' layered='true' name='[totalorganicrev]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' caption='Total PV' datatype='integer' default-type='quantitative' layered='true' name='[totalpv]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Referral PV' datatype='integer' default-type='quantitative' layered='true' name='[totalreferralpv]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Referral Rev' datatype='real' default-type='quantitative' layered='true' name='[totalreferralrev]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' caption='Total Est Rev' datatype='real' default-type='quantitative' layered='true' name='[totalrev]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Count' caption='Url' datatype='string' default-type='nominal' layered='true' name='[url]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column-instance column='[Calculation_5611202125403940]' derivation='None' name='[none:Calculation_5611202125403940:nk]' pivot='key' type='nominal' />
+      <column-instance column='[contenttype]' derivation='None' name='[none:contenttype:nk]' pivot='key' type='nominal' />
+      <column-instance column='[BE (copy)]' derivation='User' name='[usr:BE (copy):nk]' pivot='key' type='nominal' />
+      <drill-paths>
+        <drill-path name='Adchannel, Subadchannel'>
+          <field>[adchannel]</field>
+          <field>[subadchannel]</field>
+        </drill-path>
+        <drill-path name='Channel, Subchannel'>
+          <field>[channel]</field>
+          <field>[subchannel]</field>
+        </drill-path>
+      </drill-paths>
+      <layout dim-ordering='alphabetic' dim-percentage='0.325792' measure-ordering='alphabetic' measure-percentage='0.588235' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[usr:BE (copy):nk]' type='palette'>
+            <map to='#2c69b0'>
+              <bucket>true</bucket>
+            </map>
+            <map to='#bd0a36'>
+              <bucket>false</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_5611202125403940:nk]' type='palette'>
+            <map to='#2c69b0'>
+              <bucket>true</bucket>
+            </map>
+            <map to='#bd0a36'>
+              <bucket>false</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:contenttype:nk]' type='palette'>
+            <map to='#32a251'>
+              <bucket>&quot;Article&quot;</bucket>
+            </map>
+            <map to='#39737c'>
+              <bucket>&quot;Short Article&quot;</bucket>
+            </map>
+            <map to='#3cb7cc'>
+              <bucket>&quot;Chartadvisor Article&quot;</bucket>
+            </map>
+            <map to='#82853b'>
+              <bucket>&quot;Tutorial&quot;</bucket>
+            </map>
+            <map to='#98d9e4'>
+              <bucket>&quot;Slideshow&quot;</bucket>
+            </map>
+            <map to='#acd98d'>
+              <bucket>&quot;Article Primary Source&quot;</bucket>
+            </map>
+            <map to='#b85a0d'>
+              <bucket>&quot;Stock Analysis&quot;</bucket>
+            </map>
+            <map to='#ff7f0f'>
+              <bucket>&quot;Term&quot;</bucket>
+            </map>
+            <map to='#ffb977'>
+              <bucket>&quot;FAQ&quot;</bucket>
+            </map>
+            <map to='#ffd94a'>
+              <bucket>&quot;Video&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='cms (Extract)'>
+      <datasources>
+        <datasource name='cms (Extract)' />
+      </datasources>
+      <datasource-dependencies datasource='cms (Extract)'>
+        <column aggregation='Max' caption='DaysLive (Origianl Site Date)' datatype='integer' default-type='quantitative' layered='true' name='[Calculation_0350905185542366]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default'>
+          <calculation class='tableau' formula='DATEDIFF(&apos;day&apos;, [orgtimeid], TODAY() )' scope-isolation='false' />
+        </column>
+        <column aggregation='Count' datatype='string' default-type='nominal' layered='true' name='[Timelessness]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column aggregation='Count' caption='Adchannel' datatype='string' default-type='nominal' layered='true' name='[adchannel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column aggregation='Count' caption='Assignededitor' datatype='string' default-type='nominal' layered='true' name='[assignededitor]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column aggregation='Count' caption='Author' datatype='string' default-type='nominal' layered='true' name='[author]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column aggregation='Count' caption='Channel' datatype='string' default-type='nominal' layered='true' name='[channel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column aggregation='Count' caption='Contenttype' datatype='string' default-type='nominal' layered='true' name='[contenttype]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column aggregation='Count' datatype='string' default-type='nominal' layered='true' name='[keywords]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column-instance column='[Calculation_0350905185542366]' derivation='Max' name='[max:Calculation_0350905185542366:vtavg:qk]' pivot='key' type='quantitative' visual-totals='Avg' />
+        <column-instance column='[Timelessness]' derivation='None' name='[none:Timelessness:nk]' pivot='key' type='nominal' />
+        <column-instance column='[adchannel]' derivation='None' name='[none:adchannel:nk]' pivot='key' type='nominal' />
+        <column-instance column='[assignededitor]' derivation='None' name='[none:assignededitor:nk]' pivot='key' type='nominal' />
+        <column-instance column='[author]' derivation='None' name='[none:author:nk]' pivot='key' type='nominal' />
+        <column-instance column='[channel]' derivation='None' name='[none:channel:nk]' pivot='key' type='nominal' />
+        <column-instance column='[contenttype]' derivation='None' name='[none:contenttype:nk]' pivot='key' type='nominal' />
+        <column-instance column='[keywords]' derivation='None' name='[none:keywords:nk]' pivot='key' type='nominal' />
+        <column-instance column='[orgtimeid]' derivation='None' name='[none:orgtimeid:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[url]' derivation='None' name='[none:url:nk]' pivot='key' type='nominal' />
+        <column aggregation='Year' caption='OriginalSiteDate' datatype='date' default-type='ordinal' layered='true' name='[orgtimeid]' pivot='key' role='dimension' type='ordinal' user-datatype='date' visual-totals='Default' />
+        <column aggregation='Count' caption='Url' datatype='string' default-type='nominal' layered='true' name='[url]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+        <column-instance column='[orgtimeid]' derivation='Year' name='[yr:orgtimeid:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='quantitative' column='[cms (Extract)].[max:Calculation_0350905185542366:vtavg:qk]' included-values='in-range'>
+        <min>1.0</min>
+        <max>365.0</max>
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:Timelessness:nk]'>
+        <groupfilter from='&quot;Semi-timely&quot;' function='range' level='[none:Timelessness:nk]' to='&quot;Timely&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:adchannel:nk]'>
+        <groupfilter from='&quot;Active Trading&quot;' function='range' level='[none:adchannel:nk]' to='&quot;Professionals&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:assignededitor:nk]'>
+        <groupfilter function='level-members' level='[none:assignededitor:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:author:nk]'>
+        <groupfilter function='level-members' level='[none:author:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:channel:nk]'>
+        <groupfilter from='&quot;Active Trading&quot;' function='range' level='[none:channel:nk]' to='&quot;Professionals&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:contenttype:nk]'>
+        <groupfilter function='level-members' level='[none:contenttype:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:keywords:nk]'>
+        <groupfilter function='level-members' level='[none:keywords:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='quantitative' column='[cms (Extract)].[none:orgtimeid:qk]' included-values='in-range'>
+        <min>#2014-02-13#</min>
+        <max>#2015-02-12#</max>
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[none:url:nk]'>
+        <groupfilter function='level-members' level='[none:url:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+      <filter class='categorical' column='[cms (Extract)].[yr:orgtimeid:ok]'>
+        <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+          <groupfilter function='member' level='[yr:orgtimeid:ok]' member='2014' />
+          <groupfilter function='member' level='[yr:orgtimeid:ok]' member='2015' />
+        </groupfilter>
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='Editorial Quota Production'>
+      <repository-location derived-from='http://tableau001.vcbrands.net/workbooks/Trend/EditorialQuotaProduction?rev=' id='EditorialQuotaProduction' path='/t/investopedia/workbooks/Trend' revision='' site='investopedia' />
+      <table>
+        <view>
+          <datasources>
+            <datasource name='cms (Extract)' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Target' datatype='real' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='15.0'>
+              <calculation class='tableau' formula='15.0' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='cms (Extract)'>
+            <column caption='Editors (grouped)' datatype='string' name='[Assignededitor (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[assignededitor]'>
+                <bin value='&quot;Alexandra Kerr&quot;'>
+                  <value>&quot;Alexandra Kerr&quot;</value>
+                  <value>&quot;David Rodriguez&quot;</value>
+                  <value>&quot;Doug Cubberley&quot;</value>
+                  <value>&quot;Euny Hong&quot;</value>
+                  <value>&quot;Julia Kagan&quot;</value>
+                  <value>&quot;William G. Kenton III, PhD&quot;</value>
+                </bin>
+              </calculation>
+            </column>
+            <column aggregation='Max' caption='DaysLive (Origianl Site Date)' datatype='integer' default-type='quantitative' layered='true' name='[Calculation_0350905185542366]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default'>
+              <calculation class='tableau' formula='DATEDIFF(&apos;day&apos;, [orgtimeid], TODAY() )' scope-isolation='false' />
+            </column>
+            <column aggregation='Sum' caption='Total URLs' datatype='integer' default-type='quantitative' layered='true' name='[Calculation_6170911184941291]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default'>
+              <calculation class='tableau' formula='1' scope-isolation='false' />
+            </column>
+            <column aggregation='Count' datatype='string' default-type='nominal' layered='true' name='[Timelessness]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Adchannel' datatype='string' default-type='nominal' layered='true' name='[adchannel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Assignededitor' datatype='string' default-type='nominal' layered='true' name='[assignededitor]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Author' datatype='string' default-type='nominal' layered='true' name='[author]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Channel' datatype='string' default-type='nominal' layered='true' name='[channel]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column-instance column='[Calculation_6170911184941291]' derivation='Count' name='[cnt:Calculation_6170911184941291:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Count' caption='Contenttype' datatype='string' default-type='nominal' layered='true' name='[contenttype]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' datatype='string' default-type='nominal' layered='true' name='[keywords]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column-instance column='[Calculation_0350905185542366]' derivation='Max' name='[max:Calculation_0350905185542366:vtavg:qk]' pivot='key' type='quantitative' visual-totals='Avg' />
+            <column-instance column='[Timelessness]' derivation='None' name='[none:Timelessness:nk]' pivot='key' type='nominal' />
+            <column-instance column='[adchannel]' derivation='None' name='[none:adchannel:nk]' pivot='key' type='nominal' />
+            <column-instance column='[assignededitor]' derivation='None' name='[none:assignededitor:nk]' pivot='key' type='nominal' />
+            <column-instance column='[author]' derivation='None' name='[none:author:nk]' pivot='key' type='nominal' />
+            <column-instance column='[channel]' derivation='None' name='[none:channel:nk]' pivot='key' type='nominal' />
+            <column-instance column='[contenttype]' derivation='None' name='[none:contenttype:nk]' pivot='key' type='nominal' />
+            <column-instance column='[keywords]' derivation='None' name='[none:keywords:nk]' pivot='key' type='nominal' />
+            <column-instance column='[orgtimeid]' derivation='None' name='[none:orgtimeid:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[url]' derivation='None' name='[none:url:nk]' pivot='key' type='nominal' />
+            <column aggregation='Year' caption='OriginalSiteDate' datatype='date' default-type='ordinal' layered='true' name='[orgtimeid]' pivot='key' role='dimension' type='ordinal' user-datatype='date' visual-totals='Default' />
+            <column-instance column='[orgtimeid]' derivation='Week-Trunc' name='[twk:orgtimeid:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Count' caption='Url' datatype='string' default-type='nominal' layered='true' name='[url]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column-instance column='[orgtimeid]' derivation='Year' name='[yr:orgtimeid:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[cms (Extract)].[Assignededitor (group)]'>
+            <groupfilter function='member' level='[Assignededitor (group)]' member='&quot;Alexandra Kerr&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <sort class='manual' column='[cms (Extract)].[none:assignededitor:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Julia Kagan&quot;</bucket>
+              <bucket>&quot;Doug Cubberley&quot;</bucket>
+              <bucket>&quot;Euny Hong&quot;</bucket>
+              <bucket>&quot;William G. Kenton III, PhD&quot;</bucket>
+              <bucket>&quot;Alexandra Kerr&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[cms (Extract)].[yr:orgtimeid:ok]</column>
+            <column>[cms (Extract)].[none:orgtimeid:qk]</column>
+            <column>[cms (Extract)].[max:Calculation_0350905185542366:vtavg:qk]</column>
+            <column>[cms (Extract)].[none:Timelessness:nk]</column>
+            <column>[cms (Extract)].[none:contenttype:nk]</column>
+            <column>[cms (Extract)].[none:assignededitor:nk]</column>
+            <column>[cms (Extract)].[none:author:nk]</column>
+            <column>[cms (Extract)].[none:channel:nk]</column>
+            <column>[cms (Extract)].[none:adchannel:nk]</column>
+            <column>[cms (Extract)].[none:url:nk]</column>
+            <column>[cms (Extract)].[none:keywords:nk]</column>
+            <column>[cms (Extract)].[Assignededitor (group)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='label'>
+            <format attr='text-format' field='[cms (Extract)].[twk:orgtimeid:ok]' value='*yyyy\ \Www' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[cms (Extract)].[cnt:Calculation_6170911184941291:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='line-pattern' id='refline0' value='dotted' />
+            <format attr='stroke-color' id='refline0' value='#9c835f' />
+            <format attr='fill-above' id='refline0' value='#00000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[cms (Extract)].[none:contenttype:nk]' />
+            </encodings>
+            <reference-line axis-column='[cms (Extract)].[cnt:Calculation_6170911184941291:qk]' formula='average' id='refline0' label-type='automatic' scope='per-pane' value-column='[Parameters].[Parameter 1]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='186' />
+                <format attr='maxheight' value='186' />
+                <format attr='minwidth' value='960' />
+                <format attr='maxwidth' value='960' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([cms (Extract)].[none:assignededitor:nk] * [cms (Extract)].[cnt:Calculation_6170911184941291:qk])</rows>
+        <cols>([cms (Extract)].[yr:orgtimeid:ok] / [cms (Extract)].[twk:orgtimeid:ok])</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Editorial Quota Production'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[cms (Extract)].[none:contenttype:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='checkdropdown' param='[cms (Extract)].[yr:orgtimeid:ok]' type='filter' />
+            <card param='[cms (Extract)].[none:orgtimeid:qk]' show-null-ctrls='false' type='filter' values='relevant' />
+            <card param='[cms (Extract)].[max:Calculation_0350905185542366:vtavg:qk]' show-null-ctrls='false' type='filter' values='relevant' />
+            <card mode='checkdropdown' param='[cms (Extract)].[none:Timelessness:nk]' type='filter' values='relevant' />
+            <card mode='checkdropdown' param='[cms (Extract)].[none:contenttype:nk]' type='filter' />
+            <card mode='checkdropdown' param='[cms (Extract)].[none:assignededitor:nk]' type='filter' values='relevant' />
+            <card mode='checkdropdown' param='[cms (Extract)].[none:author:nk]' type='filter' values='relevant' />
+            <card mode='checkdropdown' param='[cms (Extract)].[none:channel:nk]' type='filter' />
+            <card mode='checkdropdown' param='[cms (Extract)].[none:adchannel:nk]' type='filter' />
+            <card mode='pattern' param='[cms (Extract)].[none:url:nk]' type='filter' />
+            <card mode='pattern' param='[cms (Extract)].[none:keywords:nk]' type='filter' />
+            <card mode='type_in' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[cms (Extract)].[Assignededitor (group)]</field>
+          <field>[cms (Extract)].[mn:orgtimeid:ok]</field>
+          <field>[cms (Extract)].[none:Timelessness:nk]</field>
+          <field>[cms (Extract)].[none:adchannel:nk]</field>
+          <field>[cms (Extract)].[none:assignededitor:nk]</field>
+          <field>[cms (Extract)].[none:author:nk]</field>
+          <field>[cms (Extract)].[none:channel:nk]</field>
+          <field>[cms (Extract)].[none:contenttype:nk]</field>
+          <field>[cms (Extract)].[none:orgtimeid:qk]</field>
+          <field>[cms (Extract)].[none:title:nk]</field>
+          <field>[cms (Extract)].[none:url:nk]</field>
+          <field>[cms (Extract)].[pcto:sum:Number of Records:qk]</field>
+          <field>[cms (Extract)].[tyr:orgtimeid:ok]</field>
+          <field>[cms (Extract)].[yr:orgtimeid:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Editorial Quota Production' width='192'>&#10;      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&#10;      aKHJAAAAAElFTkSuQmCC&#10;    </thumbnail>
+  </thumbnails>
+</workbook>

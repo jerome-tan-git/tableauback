@@ -1,0 +1,1248 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 8200.14.0819.2015                                -->
+<workbook source-platform='win' version='8.3' xml:base='https://external-analyze.ask.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <repository-location derived-from='http://tableau001.vcbrands.net/workbooks/DFP-MTDOrders?rev=1.0' id='DFP-MTDOrders' path='/t/investopedia/workbooks' revision='1.0' site='investopedia' />
+  <preferences />
+  <datasources>
+    <datasource inline='true' name='dfp (extract)' version='8.3'>
+      <repository-location derived-from='/datasources/dfpextract?rev=1.1' id='dfpextract' path='/t/investopedia/datasources' revision='1.0' site='investopedia' />
+      <connection channel='https' class='sqlproxy' dbname='dfpextract' directory='dataserver' port='443' server='external-analyze.ask.com' server-oauth='' username='tanj' workgroup-auth-mode='prompt'>
+        <relation name='sqlproxy' table='[sqlproxy]' type='table' />
+        <calculations>
+          <calculation column='[Number of Records]' formula='1' />
+        </calculations>
+        <metadata-records>
+          <metadata-record class='measure'>
+            <remote-name>Number of Records</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[Number of Records]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>Number of Records</remote-alias>
+            <ordinal>26</ordinal>
+            <layered>true</layered>
+            <caption>Number of Records</caption>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+              <attribute datatype='string' name='formula'>&quot;1&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>adexchangeclicks</remote-name>
+            <remote-type>2</remote-type>
+            <local-name>[adexchangeclicks]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adexchangeclicks</remote-alias>
+            <ordinal>1</ordinal>
+            <layered>true</layered>
+            <caption>Adexchangeclicks</caption>
+            <family>fact_dfp</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>adexchangeimpressions</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[adexchangeimpressions]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adexchangeimpressions</remote-alias>
+            <ordinal>2</ordinal>
+            <layered>true</layered>
+            <caption>Adexchangeimpressions</caption>
+            <family>fact_dfp</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>adexchangerevenue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[adexchangerevenue]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adexchangerevenue</remote-alias>
+            <ordinal>3</ordinal>
+            <layered>true</layered>
+            <caption>Adexchangerevenue</caption>
+            <family>fact_dfp</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>adserverclicks</remote-name>
+            <remote-type>2</remote-type>
+            <local-name>[adserverclicks]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adserverclicks</remote-alias>
+            <ordinal>4</ordinal>
+            <layered>true</layered>
+            <caption>Adserverclicks</caption>
+            <family>fact_dfp</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>adserverimpressions</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[adserverimpressions]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adserverimpressions</remote-alias>
+            <ordinal>5</ordinal>
+            <layered>true</layered>
+            <caption>Adserverimpressions</caption>
+            <family>fact_dfp</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>adserverrevenue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[adserverrevenue]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adserverrevenue</remote-alias>
+            <ordinal>6</ordinal>
+            <layered>true</layered>
+            <caption>Adserverrevenue</caption>
+            <family>fact_dfp</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adunit1</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[adunit1]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adunit1</remote-alias>
+            <ordinal>7</ordinal>
+            <layered>true</layered>
+            <caption>Adunit1</caption>
+            <family>dim_adunit</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adunit2</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[adunit2]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adunit2</remote-alias>
+            <ordinal>8</ordinal>
+            <layered>true</layered>
+            <caption>Adunit2</caption>
+            <family>dim_adunit</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adunit3</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[adunit3]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adunit3</remote-alias>
+            <ordinal>9</ordinal>
+            <layered>true</layered>
+            <caption>Adunit3</caption>
+            <family>dim_adunit</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adunit4</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[adunit4]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adunit4</remote-alias>
+            <ordinal>10</ordinal>
+            <layered>true</layered>
+            <caption>Adunit4</caption>
+            <family>dim_adunit</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adunit5</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[adunit5]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>adunit5</remote-alias>
+            <ordinal>11</ordinal>
+            <layered>true</layered>
+            <caption>Adunit5</caption>
+            <family>dim_adunit</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>advertiser</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[advertiser]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>advertiser</remote-alias>
+            <ordinal>12</ordinal>
+            <layered>true</layered>
+            <caption>Advertiser</caption>
+            <family>dim_advertiser</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>64</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contractedquantity</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[contractedquantity]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>contractedquantity</remote-alias>
+            <ordinal>13</ordinal>
+            <layered>true</layered>
+            <caption>Contractedquantity</caption>
+            <family>dim_contractedquantity</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>1</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>14</ordinal>
+            <layered>true</layered>
+            <caption>Country</caption>
+            <family>dim_country</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>27</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>creative</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[creative]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>creative</remote-alias>
+            <ordinal>15</ordinal>
+            <layered>true</layered>
+            <caption>Creative</caption>
+            <family>dim_creative</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>255</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>creativesize</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[creativesize]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>creativesize</remote-alias>
+            <ordinal>16</ordinal>
+            <layered>true</layered>
+            <caption>Creativesize</caption>
+            <family>dim_creativesize</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>255</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lineitem</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[lineitem]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>lineitem</remote-alias>
+            <ordinal>17</ordinal>
+            <layered>true</layered>
+            <caption>Lineitem</caption>
+            <family>dim_lineitem</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>255</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lineitempriority</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[lineitempriority]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>lineitempriority</remote-alias>
+            <ordinal>18</ordinal>
+            <layered>true</layered>
+            <caption>Lineitempriority</caption>
+            <family>dim_lineitempriority</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>1</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lineitemtype</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[lineitemtype]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>lineitemtype</remote-alias>
+            <ordinal>19</ordinal>
+            <layered>true</layered>
+            <caption>Lineitemtype</caption>
+            <family>dim_lineitemtype</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>32</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>order</remote-alias>
+            <ordinal>20</ordinal>
+            <layered>true</layered>
+            <caption>Order</caption>
+            <family>dim_order</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>255</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rate]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>rate</remote-alias>
+            <ordinal>21</ordinal>
+            <layered>true</layered>
+            <caption>Rate</caption>
+            <family>dim_rate</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>1</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>saleperson</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[saleperson]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>saleperson</remote-alias>
+            <ordinal>22</ordinal>
+            <layered>true</layered>
+            <caption>Saleperson</caption>
+            <family>dim_saleperson</family>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>128</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='integer' name='field-type'>2</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timeid</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[timeid]</local-name>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias>timeid</remote-alias>
+            <ordinal>23</ordinal>
+            <layered>true</layered>
+            <caption>Date</caption>
+            <family>fact_dfp</family>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='field-type'>1</attribute>
+              <attribute datatype='integer' name='role'>0</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[sqlproxy]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='boolean' name='CAP_64BIT_CALCULATIONS'>true</attribute>
+              <attribute datatype='boolean' name='CAP_QUERY_SORT_BY'>true</attribute>
+              <attribute datatype='boolean' name='CAP_QUERY_SUBQUERIES'>true</attribute>
+              <attribute datatype='boolean' name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT'>true</attribute>
+              <attribute datatype='integer' name='charset'>0</attribute>
+              <attribute datatype='string' name='class'>&quot;dataengine&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;binary&quot;</attribute>
+              <attribute datatype='string' name='datasource'>&quot;&lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos; ?&gt;&#10;&#10;&lt;datasource :source-version=&apos;8.3&apos; formatted-name=&apos;repoItem7895713239265706179&apos; inline=&apos;true&apos; version=&apos;8.3&apos; xmlns:user=&apos;http://www.tableausoftware.com/xml/user&apos;&gt;&#10;  &lt;repository-location derived-from=&apos;/datasources/dfpextract?rev=1.1&apos; id=&apos;dfpextract&apos; path=&apos;/t/investopedia/datasources&apos; revision=&apos;1.0&apos; site=&apos;investopedia&apos; /&gt;&#10;  &lt;connection channel=&apos;https&apos; class=&apos;sqlproxy&apos; dbname=&apos;dfpextract&apos; directory=&apos;dataserver&apos; password=&apos;123!@\#QWEqwe&apos; port=&apos;443&apos; server=&apos;external-analyze.ask.com&apos; server-userid=&apos;393&apos; username=&apos;tanj&apos;&gt;&#10;    &lt;relation name=&apos;sqlproxy&apos; table=&apos;[sqlproxy]&apos; type=&apos;table&apos; /&gt;&#10;    &lt;cols&gt;&#10;      &lt;map key=&apos;[Number of Records]&apos; value=&apos;[sqlproxy].[Number of Records]&apos; /&gt;&#10;      &lt;map key=&apos;[adexchangeclicks]&apos; value=&apos;[sqlproxy].[adexchangeclicks]&apos; /&gt;&#10;      &lt;map key=&apos;[adexchangeimpressions]&apos; value=&apos;[sqlproxy].[adexchangeimpressions]&apos; /&gt;&#10;      &lt;map key=&apos;[adexchangerevenue]&apos; value=&apos;[sqlproxy].[adexchangerevenue]&apos; /&gt;&#10;      &lt;map key=&apos;[adserverclicks]&apos; value=&apos;[sqlproxy].[adserverclicks]&apos; /&gt;&#10;      &lt;map key=&apos;[adserverimpressions]&apos; value=&apos;[sqlproxy].[adserverimpressions]&apos; /&gt;&#10;      &lt;map key=&apos;[adserverrevenue]&apos; value=&apos;[sqlproxy].[adserverrevenue]&apos; /&gt;&#10;      &lt;map key=&apos;[adunit1]&apos; value=&apos;[sqlproxy].[adunit1]&apos; /&gt;&#10;      &lt;map key=&apos;[adunit2]&apos; value=&apos;[sqlproxy].[adunit2]&apos; /&gt;&#10;      &lt;map key=&apos;[adunit3]&apos; value=&apos;[sqlproxy].[adunit3]&apos; /&gt;&#10;      &lt;map key=&apos;[adunit4]&apos; value=&apos;[sqlproxy].[adunit4]&apos; /&gt;&#10;      &lt;map key=&apos;[adunit5]&apos; value=&apos;[sqlproxy].[adunit5]&apos; /&gt;&#10;      &lt;map key=&apos;[advertiser]&apos; value=&apos;[sqlproxy].[advertiser]&apos; /&gt;&#10;      &lt;map key=&apos;[contractedquantity]&apos; value=&apos;[sqlproxy].[contractedquantity]&apos; /&gt;&#10;      &lt;map key=&apos;[country]&apos; value=&apos;[sqlproxy].[country]&apos; /&gt;&#10;      &lt;map key=&apos;[creative]&apos; value=&apos;[sqlproxy].[creative]&apos; /&gt;&#10;      &lt;map key=&apos;[creativesize]&apos; value=&apos;[sqlproxy].[creativesize]&apos; /&gt;&#10;      &lt;map key=&apos;[lineitem]&apos; value=&apos;[sqlproxy].[lineitem]&apos; /&gt;&#10;      &lt;map key=&apos;[lineitempriority]&apos; value=&apos;[sqlproxy].[lineitempriority]&apos; /&gt;&#10;      &lt;map key=&apos;[lineitemtype]&apos; value=&apos;[sqlproxy].[lineitemtype]&apos; /&gt;&#10;      &lt;map key=&apos;[order]&apos; value=&apos;[sqlproxy].[order]&apos; /&gt;&#10;      &lt;map key=&apos;[rate]&apos; value=&apos;[sqlproxy].[rate]&apos; /&gt;&#10;      &lt;map key=&apos;[saleperson]&apos; value=&apos;[sqlproxy].[saleperson]&apos; /&gt;&#10;      &lt;map key=&apos;[timeid]&apos; value=&apos;[sqlproxy].[timeid]&apos; /&gt;&#10;    &lt;/cols&gt;&#10;  &lt;/connection&gt;&#10;  &lt;aliases enabled=&apos;yes&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[Number of Records]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; user:auto-column=&apos;numrec&apos; visual-totals=&apos;Default&apos;&gt;&#10;    &lt;calculation class=&apos;tableau&apos; formula=&apos;1&apos; /&gt;&#10;  &lt;/column&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adexchangeclicks&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[adexchangeclicks]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adexchangeimpressions&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[adexchangeimpressions]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adexchangerevenue&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[adexchangerevenue]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adserverclicks&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[adserverclicks]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adserverimpressions&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; name=&apos;[adserverimpressions]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adserverrevenue&apos; datatype=&apos;real&apos; default-type=&apos;quantitative&apos; name=&apos;[adserverrevenue]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Adunit1&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[adunit1]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Adunit2&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[adunit2]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Adunit3&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[adunit3]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Adunit4&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[adunit4]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Adunit5&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[adunit5]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adunitid (Dim Adunit)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[adunitid (dim_adunit)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Adunitid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[adunitid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Advertiser&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[advertiser]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Advertiserid (Dim Advertiser)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[advertiserid (dim_advertiser)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Advertiserid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[advertiserid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Contractedquantity&apos; datatype=&apos;integer&apos; default-type=&apos;ordinal&apos; name=&apos;[contractedquantity]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Contractedquantityid (Dim Contractedquantity)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[contractedquantityid (dim_contractedquantity)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Contractedquantityid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[contractedquantityid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Country&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[country]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Countryid (Dim Country)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[countryid (dim_country)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Countryid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[countryid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Creative&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[creative]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Creativeid (Dim Creative)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[creativeid (dim_creative)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Creativeid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[creativeid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Creativesize&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[creativesize]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Creativesizeid (Dim Creativesize)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[creativesizeid (dim_creativesize)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Creativesizeid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[creativesizeid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Id&apos; datatype=&apos;integer&apos; default-type=&apos;ordinal&apos; hidden=&apos;true&apos; name=&apos;[id]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Lineitem&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[lineitem]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Lineitemid (Dim Lineitem)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[lineitemid (dim_lineitem)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Lineitemid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[lineitemid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Lineitempriority&apos; datatype=&apos;integer&apos; default-type=&apos;ordinal&apos; name=&apos;[lineitempriority]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Lineitempriorityid (Dim Lineitempriority)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[lineitempriorityid (dim_lineitempriority)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Lineitempriorityid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[lineitempriorityid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Lineitemtype&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[lineitemtype]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Lineitemtypeid (Dim Lineitemtype)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[lineitemtypeid (dim_lineitemtype)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Lineitemtypeid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[lineitemtypeid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Month&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[month]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Order&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[order]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Orderid (Dim Order)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[orderid (dim_order)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Orderid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[orderid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Quarter&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[quarter]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Rate&apos; datatype=&apos;real&apos; default-type=&apos;ordinal&apos; name=&apos;[rate]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;real&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Rateid (Dim Rate)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[rateid (dim_rate)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Rateid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[rateid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Saleperson&apos; datatype=&apos;string&apos; default-type=&apos;nominal&apos; name=&apos;[saleperson]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;nominal&apos; user-datatype=&apos;string&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Salepersonid (Dim Saleperson)&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[salepersonid (dim_saleperson)]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Sum&apos; caption=&apos;Salepersonid&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[salepersonid]&apos; pivot=&apos;key&apos; role=&apos;measure&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Year&apos; caption=&apos;Date&apos; datatype=&apos;date&apos; default-type=&apos;ordinal&apos; name=&apos;[timeid]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;ordinal&apos; user-datatype=&apos;date&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;column aggregation=&apos;Count&apos; caption=&apos;Year&apos; datatype=&apos;integer&apos; default-type=&apos;quantitative&apos; hidden=&apos;true&apos; name=&apos;[year]&apos; pivot=&apos;key&apos; role=&apos;dimension&apos; type=&apos;quantitative&apos; user-datatype=&apos;integer&apos; visual-totals=&apos;Default&apos; /&gt;&#10;  &lt;layout dim-ordering=&apos;alphabetic&apos; dim-percentage=&apos;0.5&apos; measure-ordering=&apos;alphabetic&apos; measure-percentage=&apos;0.4&apos; show-structure=&apos;true&apos; /&gt;&#10;  &lt;semantic-values&gt;&#10;    &lt;semantic-value key=&apos;[Country].[Name]&apos; value=&apos;&amp;quot;United States&amp;quot;&apos; /&gt;&#10;  &lt;/semantic-values&gt;&#10;&lt;/datasource&gt;&#10;&quot;</attribute>
+              <attribute datatype='boolean' name='extract-active'>true</attribute>
+              <attribute datatype='string' name='update-time'>&quot;3/10/2015 9:47:11 AM&quot;</attribute>
+              <attribute datatype='string' name='version'>&quot;0.0.0&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[Adunit4 (group 1)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[adunit4]' default='&quot;pg-welcomead&quot;'>
+          <bin value='&quot;af-left-halfpage&quot;'>
+            <value>&quot;af-left-halfpage&quot;</value>
+            <value>&quot;af-left-multi&quot;</value>
+            <value>&quot;af-left-rectangle&quot;</value>
+            <value>&quot;af-left-skyscraper&quot;</value>
+            <value>&quot;af-right-halfpage&quot;</value>
+            <value>&quot;af-right-multi&quot;</value>
+            <value>&quot;af-right-rectangle&quot;</value>
+            <value>&quot;af-right-skyscraper&quot;</value>
+            <value>&quot;af-top-leaderboard&quot;</value>
+            <value>&quot;bf-left-skyscraper&quot;</value>
+            <value>&quot;bf-right-multi&quot;</value>
+            <value>&quot;ic-300wide-multi&quot;</value>
+            <value>&quot;ic-rectangle&quot;</value>
+            <value>&quot;M-OnSwipe-Leaderboard&quot;</value>
+            <value>&quot;M-OnSwipe-Mobile_Leaderboard&quot;</value>
+            <value>&quot;M-OnSwipe-Rectangle&quot;</value>
+          </bin>
+        </calculation>
+        <aliases>
+          <alias key='&quot;af-left-halfpage&quot;' value='Selected' />
+          <alias key='&quot;pg-welcomead&quot;' value='Other' />
+        </aliases>
+      </column>
+      <column caption='TotalImpressions' datatype='integer' name='[Calculation_1880123211601074]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[adexchangeimpressions]+[adserverimpressions]' scope-isolation='false' />
+      </column>
+      <column aggregation='Sum' datatype='integer' default-type='quantitative' layered='true' name='[Number of Records]' pivot='key' role='measure' type='quantitative' user-datatype='integer' user:auto-column='numrec' visual-totals='Default'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Order (2 groups)' datatype='string' name='[Order (group 2)  (copy)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[order]' default='&quot;TTW-ADX&quot;'>
+          <bin value='&quot;3187500 - INV-AdSense-Priority15&quot;'>
+            <value>&quot;3187500 - INV-AdSense-Priority15&quot;</value>
+            <value>&quot;3203142 - M-INV | AdSense Priority 15&quot;</value>
+            <value>&quot;3373199 - INV-NA I Merrill Edge I 20-March-13 I Remnant I Standard&quot;</value>
+            <value>&quot;3389784 - INV-NA I Advertising.com Remnant I 18-March-13 I Remnant&quot;</value>
+            <value>&quot;3399268 - INV-NA I Ad Karma Remnant I 20-March-13 I Pre_Roll&quot;</value>
+            <value>&quot;3406844 - INV UK | Dianomi UK Remnant |&quot;</value>
+            <value>&quot;3433484 - INV-NA I Sharebuilder Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3437105 - INV-NA I Juhl Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3438465 - INV-NA I Texzus Captial Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3452682 - INV-NA I Adconion UK Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3457342 - INV-NA I Martini Media Q2 Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3466993 - INV-NA I CPX Interactive Q2 Remnant Test I 01-April_2013&quot;</value>
+            <value>&quot;3469683 - INV-NA I Merrill Edge I 9-April-13 I Premium I Remnant&quot;</value>
+            <value>&quot;3478370 - INV-NA I Adconion US AMEX Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3488168 - INV-NA I Captial One 360 Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3496767 - INV-NA I Dianomi US &amp; CA  Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3517817 - INV-NA I Ad.com US &amp;CA Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3548501 - INV-NA I Adconion US Hallmark Remnant I 01-MAY_2013&quot;</value>
+            <value>&quot;3561621 - INV-NA I CPX Interactive Remnant Buy I 01-May_2013&quot;</value>
+            <value>&quot;3566922 - INV-NA I Captial One 360 Remnant I 01-May_June_2013&quot;</value>
+            <value>&quot;3579183 - INV-NA I Dedicated Media Remnant Buy I 01-May_2013&quot;</value>
+            <value>&quot;3592154 - INV-NA I Merrill Edge I 9-Jun-13 I Premium I Remnant&quot;</value>
+            <value>&quot;3598092 - INV-NA I Matomy Media Remnant Test I 01-May_2013&quot;</value>
+            <value>&quot;3604193 - INV-NA I BroadSpring Investopedia Test I 01-May_2013&quot;</value>
+            <value>&quot;3634419 - INV-NA I Adconion US Remnant Test I 01-MAY_June_2013&quot;</value>
+            <value>&quot;3648580 - INV-NA I Adconion UK Remnant I 01-June_2013&quot;</value>
+            <value>&quot;3650371 - INV-NA I Technorati Rev-Share Test I 01-June_2013&quot;</value>
+            <value>&quot;3660949 - INV-NA I Matomy Media Flat CPM I 2013&quot;</value>
+            <value>&quot;3665051 - INV-NA I OPEN-X CPW Test I 01-June_2013&quot;</value>
+            <value>&quot;3669153 - INV-NA I Yieldbot I Remnant | US&quot;</value>
+            <value>&quot;3669239 - SFD-NA / IHG-NA I Yieldbot I Remnant | US&quot;</value>
+            <value>&quot;3672322 - INV UK | Barclays | Undertone | JUNE | REMNANT&quot;</value>
+            <value>&quot;3679570 - INV-NA I Ad Tech US Remnant Test I 01-_June_2013&quot;</value>
+            <value>&quot;3681843 - INV-NA I Adconion USA Remnant I 01-June_2013&quot;</value>
+            <value>&quot;3693206 - VCB | OnSwipe | Home Depot | Premium | US&quot;</value>
+            <value>&quot;3704986 - INV-NA I Keystone Marketing Remnant US &amp; UK I 01-June_2013&quot;</value>
+            <value>&quot;3707847 - INV-NA I Technorati Fixed CPM Campaign I 01-June_2013&quot;</value>
+            <value>&quot;3727990 - INV-NA I Captial One 360 I Q3 | Remnant&quot;</value>
+            <value>&quot;3733668 - INV-NA I Ad.com US &amp;CA Remnant I Q3 - 2013&quot;</value>
+            <value>&quot;3741755 - INV-NA I Adconion US Remnant I Q3_2013&quot;</value>
+            <value>&quot;3752585 - INV-NA I Dianomi US &amp; CA Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3760165 - INV-NA I Martini Media I Norwegian Cruse Lines | 3-Jun-2013&quot;</value>
+            <value>&quot;3772263 - INV-NA | Ad.com | 23-July-13 | Mobile US &amp; Canada&quot;</value>
+            <value>&quot;3775736 - INV UK | Dianomi TEST | REMNANT&quot;</value>
+            <value>&quot;3790032 - INV-NA | OpenX - US Fixed CPM | 15-July-13 | Remnant&quot;</value>
+            <value>&quot;3798282 - INV-NA | Capital One 360 - TrafficBuyer | US Fixed CPM | 17-July-13 | Remnant&quot;</value>
+            <value>&quot;3895086 - INV-NA I Martini Media I Chase Private Client | CHI &amp; LA | 19-Aug-2013&quot;</value>
+            <value>&quot;3913257 - INV-NA I IMS - State Farm I 23-Aug-13 I Premium I US&quot;</value>
+            <value>&quot;3929462 - INV-NA I Zacks I 28-Aug-13 I Barter | US&quot;</value>
+            <value>&quot;3936054 - INV-NA I Martini Media I Capital One | 29-Aug-2013&quot;</value>
+            <value>&quot;3949660 - PR UK | Carat Media | Indesit&quot;</value>
+            <value>&quot;3956596 - INV-NA | OpenX - Fixed CPM | 5-Sept-13 | US | Remnant&quot;</value>
+            <value>&quot;3974416 - INV UK | Undertone NZTB Sep | REMNANT&quot;</value>
+            <value>&quot;3984139 - INV UK | 24Option Test | REM&quot;</value>
+            <value>&quot;4005302 - INV UK | 24Option Media Group Worldwide | REM&quot;</value>
+            <value>&quot;4018109 - INV-NA I Advertising.com I 23-Sep-13 I Dish Billboard | Remnant&quot;</value>
+            <value>&quot;4022973 - INV-NA I Ad.com | US &amp;CA Remnant I Q4&quot;</value>
+            <value>&quot;4043934 - INV UK | Undertone - Jaguar | OCT | REM&quot;</value>
+            <value>&quot;4046453 - INV-NA I Martini Media I BMW Dashboard | 30-Sep-2013&quot;</value>
+            <value>&quot;4049866 - INV UK | Undertone - HAL | AUS Oct-Nov | REM&quot;</value>
+            <value>&quot;4062049 - INV-NA I Adconion US Remnant I Q4&quot;</value>
+            <value>&quot;4067062 - INV-NA I Martini Media I Wells Fargo Roadblock | 04-Oct-2013&quot;</value>
+            <value>&quot;4086490 - INV UK | Undertone NZTB Oct UW | REM&quot;</value>
+            <value>&quot;4126117 - INV UK | Undertone | PFU | REM&quot;</value>
+            <value>&quot;4154606 - INV-NA I Martini Media I Korean Air | 29-Oct-2013&quot;</value>
+            <value>&quot;4179201 - INV-NA I Advertising.com US Remnant I 300x1050 | 6-NOV&quot;</value>
+            <value>&quot;4184634 - INV UK | Undertone - HAL | AUS Nov | REM&quot;</value>
+            <value>&quot;4188700 - INV UK | Undertone - Gravity | Nov | REM&quot;</value>
+            <value>&quot;4200775 - INV UK | Undertone Sky Multi | Nov 13 | REM&quot;</value>
+            <value>&quot;4203676 - INV UK | 24Option | Balance Text Link/MPU | Nov | REM&quot;</value>
+            <value>&quot;4207183 - INV-NA I Undertone US I 12-Nov-13 I Remnant I Standard&quot;</value>
+            <value>&quot;4210027 - INV UK | Ptarmigan - Relendex | Nov | REM&quot;</value>
+            <value>&quot;4221660 - INV-NA I Martini Media I Mercedes S-Class | 15-Nov-2013&quot;</value>
+            <value>&quot;4234815 - INV UK | Undertone - Jaguar | Nov - Feb | REM&quot;</value>
+            <value>&quot;4242447 - INV UK | Undertone UK | Dec 13 | SeekJobs | REM&quot;</value>
+            <value>&quot;4246141 - INV-NA I Exponential - Tribal Fusion I 22-Nov-13 I Remnant I Standard&quot;</value>
+            <value>&quot;4256794 - INV UK | Undertone - EE | REM&quot;</value>
+            <value>&quot;4268666 - INV UK | Undertone - Lenovo | DEC | REM&quot;</value>
+            <value>&quot;4272353 - INV UK | Undertone - HAL | DEC | REM&quot;</value>
+            <value>&quot;4273895 - INV-NA I Martini Media I KIA - Tablet Interstitial | 29-Oct-2013&quot;</value>
+            <value>&quot;4280837 - INV-NA I PulsePoint I Fixed CPM - Remnant | 03-Dec-2013&quot;</value>
+            <value>&quot;4295457 - INV-NA I Stacker Media I Fixed CPM - Remnant | Standard&quot;</value>
+            <value>&quot;4299026 - INV-NA I Ybrant Digital I AUS Pre-Roll | 09-Dec-2013 | Remnant&quot;</value>
+            <value>&quot;4299643 - INV-NA I Martini Media I HSBC | 09-Dec-2013&quot;</value>
+            <value>&quot;4308450 - INV UK | Undertone - Shell | Dec | REM&quot;</value>
+            <value>&quot;4318517 - INV UK | Undertone - Lavazza | DEC | REM&quot;</value>
+            <value>&quot;4318658 - INV UK | Undertone - Shell standard | REM&quot;</value>
+            <value>&quot;4323877 - INV UK | Undertone - Zegna | REM&quot;</value>
+            <value>&quot;4337366 - INV-NA I Ad.com | US &amp; CA Remnant I Jan - June&quot;</value>
+            <value>&quot;4347052 - INV-NA I Capital One I Q1 | 01-Jan-2014 | Remnant&quot;</value>
+            <value>&quot;4348702 - INV-NA I Merrill Edge I 1-Jan-14 I Premium I CPC&quot;</value>
+            <value>&quot;4371076 - INV UK | Undertone - Celebrity Cruises | Jan-Feb | REM&quot;</value>
+            <value>&quot;4375113 - INV UK | Undertone - HAL | UK &amp; AUS |  Jan-Feb | REM&quot;</value>
+            <value>&quot;4375161 - INV-NA I Advertising.com | 03-Jan-14 | Remnant | Viagra&quot;</value>
+            <value>&quot;4383318 - INV UK | Undertone - Tourism AUST | REM&quot;</value>
+            <value>&quot;4388203 - INV UK | Undertone - Tourism AUST | Non-Passback  | REM&quot;</value>
+            <value>&quot;4388271 - INV UK | Undertone - HAL | UK  Standard display | Jan-Feb | REM&quot;</value>
+            <value>&quot;4388616 - INV-NA I Undertone US I 08-Jan-14 I Remnant I 2014&quot;</value>
+            <value>&quot;4399520 - INV-NA I Advertising.com | 13-Jan-14 | Remnant | Alaska Airlines&quot;</value>
+            <value>&quot;4410939 - INV UK | Undertone | PFU | Jan-Feb | REM&quot;</value>
+            <value>&quot;4415233 - INV UK | Undertone - Infiniti | Jan-Feb | REM&quot;</value>
+            <value>&quot;4456215 - INV-NA I Core Digital | 24-Feb-14 | Remnant | Standard&quot;</value>
+            <value>&quot;4470850 - INV-NA I Martini Media I Korean Air | 01-Feb-14 | Remnant&quot;</value>
+            <value>&quot;4474869 - INV UK | Undertone - Sky Go | REM&quot;</value>
+            <value>&quot;4493220 - INV-NA I Advertising.com I 10-Feb-14 | Remnant | Prudential Devil Campaign&quot;</value>
+            <value>&quot;4495794 - INV-NA I Fitapelli &amp; Kurta I 17-Feb-14 | Premium | CPC&quot;</value>
+            <value>&quot;4499050 - INV-NA I Adprime I 10-Feb-14 I Remnant I United Airlines&quot;</value>
+            <value>&quot;4511666 - INV-NA I Struq | 17-Mar-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4512026 - INV UK | Undertone - Scottish Widows | REMNANT&quot;</value>
+            <value>&quot;4523579 - INV-NA I Trade King I 1-Mar-14 I Premium I CPC&quot;</value>
+            <value>&quot;4548399 - INV UK | Undertone - HAL | AUS Standard display | Feb | REM&quot;</value>
+            <value>&quot;4561068 - INV-NA I Advertising.com I 28-Feb-14 | Remnant | Netflix&quot;</value>
+            <value>&quot;4569674 - INV UK | Undertone - FT Weekend | REM&quot;</value>
+            <value>&quot;4569871 - INV UK | Undertone - HAL | UK + AUS Standard display | Mar | REM&quot;</value>
+            <value>&quot;4571886 - INV-NA I MariMedia I 05-March-14 I Remnant | Standard&quot;</value>
+            <value>&quot;4576870 - INV-NA I Advertising.com I 05-Mar-14 | Remnant | Staples&quot;</value>
+            <value>&quot;4603642 - INV UK | Undertone - Santander | REM&quot;</value>
+            <value>&quot;4603726 - INV UK | Undertone - Santander Mortgage | REM&quot;</value>
+            <value>&quot;4617141 - INV UK | Undertone - Economist | Tablet | REM&quot;</value>
+            <value>&quot;4634000 - INV-NA I Capital One I 01-Apr-14 | Remnant | Q2&quot;</value>
+            <value>&quot;4658360 - INV UK | Undertone - 3 Mobile | REM&quot;</value>
+            <value>&quot;4664531 - INV UK | Undertone - Mitsubishi | REM&quot;</value>
+            <value>&quot;4665111 - INV-NA I Advertising.com I 01-Apr-14 | Remnant | BOA Halo&quot;</value>
+            <value>&quot;4685811 - INV UK | Undertone - NPower | April | REMNANT&quot;</value>
+            <value>&quot;4697547 - INV UK | Undertone - Jaguar | Apr-May | REM&quot;</value>
+            <value>&quot;4704206 - INV-NA I Adconion I 8-Apr-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4731345 - INV-NA I Markets.com I 1-May-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4757949 - INV UK | Undertone - Oracle 1 | REM&quot;</value>
+            <value>&quot;4757982 - INV UK | Undertone - Oracle 2 | REM&quot;</value>
+            <value>&quot;4783866 - INV-NA I Martini Media | 01-May-14 | Remnant | Korean Air&quot;</value>
+            <value>&quot;4806994 - INV UK | Undertone - FT | REM&quot;</value>
+            <value>&quot;4817442 - INV UK | Undertone - SKY | REM&quot;</value>
+            <value>&quot;4825593 - INV UK | Undertone - Morrisons | REMNANT&quot;</value>
+            <value>&quot;4831433 - INV-NA I Martini Media | 5-May-14 | Remnant | Bentley&quot;</value>
+            <value>&quot;4844007 - INV UK | Undertone - Sony | REMNANT&quot;</value>
+            <value>&quot;4857546 - INV-NA I ConsumerTrack GE Capital I 23-May-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4873673 - INV-NA I Markets.com I 01-June-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4877446 - INV UK | Undertone - Oracle HCM | Remnant&quot;</value>
+            <value>&quot;4961879 - INV-NA I Capital One I 01-July-14 | Remnant | Q3&quot;</value>
+            <value>&quot;4968433 - INV-NA I Advertising.com I 01-July-14 | Remnant | PNF Initiative&quot;</value>
+            <value>&quot;4969120 - INV UK | Undertone - Kelloggs M&amp;C | Remnant&quot;</value>
+            <value>&quot;4978884 - INV UK | Undertone M&amp;S Video | REMNANT&quot;</value>
+            <value>&quot;4987465 - INV-NA I Markets.com I 02-July-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4988950 - INV-NA I Top Option I 02-July-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4991285 - INV-NA I Advertising.com I 02-July-14 | Remnant | BOA Halo&quot;</value>
+            <value>&quot;5070058 - INV-NA I Markets.com I 01-Aug-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5087391 - INV-NA I Adconion I 04-Aug-14 I Remnant I Porsche&quot;</value>
+            <value>&quot;5127139 - INV-NA I Broker Match I 25-Aug-14 I Remnant I CPC&quot;</value>
+            <value>&quot;5133597 - INV-NA I Advertising.com I 20-Aug-14 | Remnant | Lenovo&quot;</value>
+            <value>&quot;5157221 - INV-NA I Matomy I 28-Aug-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5157626 - INV-NA I Consumer Track I 10-Sep-14 I Remnant I Synchrony &amp; Ally&quot;</value>
+            <value>&quot;5170433 - INV-NA I Markets.com I 02-Sep-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5172289 - INV-NA I Casale Media I 03-Sep-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5194183 - INV-NA I Martini Media | 08-Sep-14 | Remnant | Lufthansa&quot;</value>
+            <value>&quot;5194208 - INV-NA I Adprime I 01-Sep-14 I Remnant I Ritz&quot;</value>
+            <value>&quot;5226545 - INV-NA I Adprime I 18-Sep-14 I Remnant I Barclays&quot;</value>
+            <value>&quot;5234147 - INV-NA I The Economist I 01-Oct-14 I Remnant | CPC&quot;</value>
+            <value>&quot;5259971 - INV-NA I Advertising.com I 26-Sep-14 | Remnant | Adobe&quot;</value>
+            <value>&quot;5262312 - INV-NA I Martini Media | 08-Sep-14 | Remnant | PFG&quot;</value>
+            <value>&quot;5263481 - INV-NA I Martini Media | 28-Oct-14 | Remnant | Emirates&quot;</value>
+            <value>&quot;5274510 - INV-NA I Capital One I 01-Oct-14 | Remnant | Q4&quot;</value>
+            <value>&quot;5274568 - INV-NA I Martini Media | 30-Sep-14 | Remnant | BMW&quot;</value>
+            <value>&quot;5279911 - INV-NA I Markets.com I 02-Oct-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5318736 - INV-NA I Advertising.com I 10-Oct-14 | Remnant | Porsche&quot;</value>
+            <value>&quot;5320104 - INV-NA I Consumer Track I 13-Oct-14 I Remnant I Synchrony&quot;</value>
+            <value>&quot;5328814 - INV-NA I Sharebuilder I 15-Oct-14 I Remnant I Q4&quot;</value>
+            <value>&quot;5331275 - INV-NA I IQ Adnet I 15-Oct-14 I Remnant I Babson College&quot;</value>
+            <value>&quot;5341087 - INV-NA I FXDD I 23-Oct-14 | Remnant | CPC&quot;</value>
+            <value>&quot;5360320 - INV-NA I Consumer Track I 23-Oct-14 I Remnant I Synchrony&quot;</value>
+            <value>&quot;5375352 - INV-NA I IQ Adnet I 27-Oct-14 I Remnant I Financial Professionals&quot;</value>
+            <value>&quot;5383374 - INV-NA I Adprime I 29-Oct-14 I Remnant I Economist&quot;</value>
+            <value>&quot;5397855 - INV-NA | Quinstreet | 10-Dec-14 | Premium | Interstitial&quot;</value>
+            <value>&quot;5401245 - INV-NA I Advertising.com I 04-Nov-14 | Remnant | Canada Health&quot;</value>
+            <value>&quot;5401553 - INV-NA I Consumer Track I 03-Nov-14 I Remnant I Synchrony November&quot;</value>
+            <value>&quot;5407175 - INV-NA I Adprime I 05-Nov-14 I Remnant I AXA&quot;</value>
+            <value>&quot;5420711 - INV-NA I Branovate I 10-Nov-14 I Remnant | Standard&quot;</value>
+            <value>&quot;5458100 - INV-NA I 152 Media I 24-Nov-14 I Remnant | Standard&quot;</value>
+            <value>&quot;5459440 - INV-NA | IMS | 20-Nov-14 | Remnant | Lux Auto&quot;</value>
+            <value>&quot;5474878 - INV-NA I Lin Digital | 25-Nov-14 | Remnant | Standard&quot;</value>
+            <value>&quot;5475030 - INV-NA I LoanMe I 03-Dec-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5476154 - INV-NA I The Economist I 01-Dec-14 I Remnant | CPC&quot;</value>
+            <value>&quot;5490769 - INV-NA I Consumer Track I 01-Dec-14 I Remnant I Synchrony&quot;</value>
+            <value>&quot;5503688 - INV-NA I Velis Media I 05-Dec-14 I Remnant | Standard&quot;</value>
+            <value>&quot;5515140 - INV-NA I Martini Media | 08-Dec-14 | Remnant | Nationwide Healthcare&quot;</value>
+            <value>&quot;5518659 - INV-NA I Safecap Investments I 10-Dec-14 I Remnant I Standard&quot;</value>
+            <value>&quot;ALL | Google AdExchange | Remnant | Standard&quot;</value>
+            <value>&quot;ALL | House Catch-All | Remnant | Standard&quot;</value>
+            <value>&quot;INV - Remnant Temp Porder | Ad.com Always On&quot;</value>
+            <value>&quot;INV - Remnant Temp Porder | Engage BDR&quot;</value>
+            <value>&quot;INV | 3 Interactive | 13-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | AdConion - STAXYN | 21-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | AdConion | 1-Mar-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Dianomi | 15-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Google AdExchange | Remnant | Standard&quot;</value>
+            <value>&quot;INV | NetSeer | 08-Mar-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Texzus Capital Ventures | 25-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Time Inc | 13-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV-AdBlade&quot;</value>
+            <value>&quot;INV-ADX&quot;</value>
+            <value>&quot;INV-Dianomi&quot;</value>
+            <value>&quot;INV-IndustryBrains&quot;</value>
+            <value>&quot;INV-InfoLinks-Remnant-Standard&quot;</value>
+            <value>&quot;INV-NA | Advertising.com | 16-Dec-14 | Remnant | Always On&quot;</value>
+            <value>&quot;INV-NA I AdBistro I 26-Dec-14 I Remnant I Standard&quot;</value>
+            <value>&quot;INV-NA I Criteo I BF/AF-Right-Multi-Pass I Standard&quot;</value>
+            <value>&quot;INV-NA I Dianomi I 09-July-14 I Remnant | Standard&quot;</value>
+            <value>&quot;INV-NA I Dianomi I Below-Content | Unlimited&quot;</value>
+            <value>&quot;INV-NA I Engage BDR I 16-Dec-14 | Remnant | Standard&quot;</value>
+            <value>&quot;INV-NA I FINMC | US/UK/AU/CA Text Links&quot;</value>
+            <value>&quot;INV-NA I Matomy I 01-Jan-15 I Remnant I Standard&quot;</value>
+            <value>&quot;INV-NA I Morningstar I 22-10-13 I Remnant&quot;</value>
+            <value>&quot;INV-NA I Quinstreet.com I  Remnant&quot;</value>
+            <value>&quot;INV-SHB130101-Remnant-Sharebuilder&quot;</value>
+            <value>&quot;INV-TEST&quot;</value>
+            <value>&quot;INV-VCM130128-Remnant-Standard&quot;</value>
+            <value>&quot;isocket order for: StockViews&quot;</value>
+            <value>&quot;Nadex Support&quot;</value>
+            <value>&quot;PR-UK TEST&quot;</value>
+            <value>&quot;SFD/INV | Prosper Technologies | 21-Mar-13 | Barter&quot;</value>
+            <value>&quot;Undertone Passback | REM&quot;</value>
+            <value>&quot;VCB | Lending Tree | CPL | Premium&quot;</value>
+            <value>&quot;VCB | NetSeer | 6-feb-13 | Price Priority&quot;</value>
+          </bin>
+        </calculation>
+        <aliases>
+          <alias key='&quot;3187500 - INV-AdSense-Priority15&quot;' value='Remnant Direct' />
+          <alias key='&quot;TTW-ADX&quot;' value='Real Order' />
+        </aliases>
+      </column>
+      <column caption='Order (3 groups) ' datatype='string' name='[Order (group) 1]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[order]' default='&quot;TTW-ADX&quot;'>
+          <bin value='&quot;3187500 - INV-AdSense-Priority15&quot;'>
+            <value>&quot;3187500 - INV-AdSense-Priority15&quot;</value>
+            <value>&quot;3203142 - M-INV | AdSense Priority 15&quot;</value>
+            <value>&quot;3373199 - INV-NA I Merrill Edge I 20-March-13 I Remnant I Standard&quot;</value>
+            <value>&quot;3406844 - INV UK | Dianomi UK Remnant |&quot;</value>
+            <value>&quot;3433484 - INV-NA I Sharebuilder Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3437105 - INV-NA I Juhl Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3438465 - INV-NA I Texzus Captial Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3452682 - INV-NA I Adconion UK Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3457342 - INV-NA I Martini Media Q2 Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3466993 - INV-NA I CPX Interactive Q2 Remnant Test I 01-April_2013&quot;</value>
+            <value>&quot;3469683 - INV-NA I Merrill Edge I 9-April-13 I Premium I Remnant&quot;</value>
+            <value>&quot;3478370 - INV-NA I Adconion US AMEX Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3488168 - INV-NA I Captial One 360 Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3496767 - INV-NA I Dianomi US &amp; CA  Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3517817 - INV-NA I Ad.com US &amp;CA Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3548501 - INV-NA I Adconion US Hallmark Remnant I 01-MAY_2013&quot;</value>
+            <value>&quot;3561621 - INV-NA I CPX Interactive Remnant Buy I 01-May_2013&quot;</value>
+            <value>&quot;3566922 - INV-NA I Captial One 360 Remnant I 01-May_June_2013&quot;</value>
+            <value>&quot;3579183 - INV-NA I Dedicated Media Remnant Buy I 01-May_2013&quot;</value>
+            <value>&quot;3592154 - INV-NA I Merrill Edge I 9-Jun-13 I Premium I Remnant&quot;</value>
+            <value>&quot;3598092 - INV-NA I Matomy Media Remnant Test I 01-May_2013&quot;</value>
+            <value>&quot;3604193 - INV-NA I BroadSpring Investopedia Test I 01-May_2013&quot;</value>
+            <value>&quot;3634419 - INV-NA I Adconion US Remnant Test I 01-MAY_June_2013&quot;</value>
+            <value>&quot;3648580 - INV-NA I Adconion UK Remnant I 01-June_2013&quot;</value>
+            <value>&quot;3650371 - INV-NA I Technorati Rev-Share Test I 01-June_2013&quot;</value>
+            <value>&quot;3660949 - INV-NA I Matomy Media Flat CPM I 2013&quot;</value>
+            <value>&quot;3665051 - INV-NA I OPEN-X CPW Test I 01-June_2013&quot;</value>
+            <value>&quot;3669153 - INV-NA I Yieldbot I Remnant | US&quot;</value>
+            <value>&quot;3669239 - SFD-NA / IHG-NA I Yieldbot I Remnant | US&quot;</value>
+            <value>&quot;3672322 - INV UK | Barclays | Undertone | JUNE | REMNANT&quot;</value>
+            <value>&quot;3681843 - INV-NA I Adconion USA Remnant I 01-June_2013&quot;</value>
+            <value>&quot;3693206 - VCB | OnSwipe | Home Depot | Premium | US&quot;</value>
+            <value>&quot;3704986 - INV-NA I Keystone Marketing Remnant US &amp; UK I 01-June_2013&quot;</value>
+            <value>&quot;3727990 - INV-NA I Captial One 360 I Q3 | Remnant&quot;</value>
+            <value>&quot;3733668 - INV-NA I Ad.com US &amp;CA Remnant I Q3 - 2013&quot;</value>
+            <value>&quot;3741755 - INV-NA I Adconion US Remnant I Q3_2013&quot;</value>
+            <value>&quot;3752585 - INV-NA I Dianomi US &amp; CA Remnant I 01-April_2013&quot;</value>
+            <value>&quot;3760165 - INV-NA I Martini Media I Norwegian Cruse Lines | 3-Jun-2013&quot;</value>
+            <value>&quot;3772263 - INV-NA | Ad.com | 23-July-13 | Mobile US &amp; Canada&quot;</value>
+            <value>&quot;3775736 - INV UK | Dianomi TEST | REMNANT&quot;</value>
+            <value>&quot;3790032 - INV-NA | OpenX - US Fixed CPM | 15-July-13 | Remnant&quot;</value>
+            <value>&quot;3798282 - INV-NA | Capital One 360 - TrafficBuyer | US Fixed CPM | 17-July-13 | Remnant&quot;</value>
+            <value>&quot;3895086 - INV-NA I Martini Media I Chase Private Client | CHI &amp; LA | 19-Aug-2013&quot;</value>
+            <value>&quot;3913257 - INV-NA I IMS - State Farm I 23-Aug-13 I Premium I US&quot;</value>
+            <value>&quot;3929462 - INV-NA I Zacks I 28-Aug-13 I Barter | US&quot;</value>
+            <value>&quot;3936054 - INV-NA I Martini Media I Capital One | 29-Aug-2013&quot;</value>
+            <value>&quot;3949660 - PR UK | Carat Media | Indesit&quot;</value>
+            <value>&quot;3974416 - INV UK | Undertone NZTB Sep | REMNANT&quot;</value>
+            <value>&quot;3984139 - INV UK | 24Option Test | REM&quot;</value>
+            <value>&quot;4005302 - INV UK | 24Option Media Group Worldwide | REM&quot;</value>
+            <value>&quot;4018109 - INV-NA I Advertising.com I 23-Sep-13 I Dish Billboard | Remnant&quot;</value>
+            <value>&quot;4022973 - INV-NA I Ad.com | US &amp;CA Remnant I Q4&quot;</value>
+            <value>&quot;4043934 - INV UK | Undertone - Jaguar | OCT | REM&quot;</value>
+            <value>&quot;4046453 - INV-NA I Martini Media I BMW Dashboard | 30-Sep-2013&quot;</value>
+            <value>&quot;4049866 - INV UK | Undertone - HAL | AUS Oct-Nov | REM&quot;</value>
+            <value>&quot;4062049 - INV-NA I Adconion US Remnant I Q4&quot;</value>
+            <value>&quot;4067062 - INV-NA I Martini Media I Wells Fargo Roadblock | 04-Oct-2013&quot;</value>
+            <value>&quot;4086490 - INV UK | Undertone NZTB Oct UW | REM&quot;</value>
+            <value>&quot;4126117 - INV UK | Undertone | PFU | REM&quot;</value>
+            <value>&quot;4154606 - INV-NA I Martini Media I Korean Air | 29-Oct-2013&quot;</value>
+            <value>&quot;4179201 - INV-NA I Advertising.com US Remnant I 300x1050 | 6-NOV&quot;</value>
+            <value>&quot;4184634 - INV UK | Undertone - HAL | AUS Nov | REM&quot;</value>
+            <value>&quot;4188700 - INV UK | Undertone - Gravity | Nov | REM&quot;</value>
+            <value>&quot;4200775 - INV UK | Undertone Sky Multi | Nov 13 | REM&quot;</value>
+            <value>&quot;4203676 - INV UK | 24Option | Balance Text Link/MPU | Nov | REM&quot;</value>
+            <value>&quot;4207183 - INV-NA I Undertone US I 12-Nov-13 I Remnant I Standard&quot;</value>
+            <value>&quot;4210027 - INV UK | Ptarmigan - Relendex | Nov | REM&quot;</value>
+            <value>&quot;4221660 - INV-NA I Martini Media I Mercedes S-Class | 15-Nov-2013&quot;</value>
+            <value>&quot;4234815 - INV UK | Undertone - Jaguar | Nov - Feb | REM&quot;</value>
+            <value>&quot;4242447 - INV UK | Undertone UK | Dec 13 | SeekJobs | REM&quot;</value>
+            <value>&quot;4246141 - INV-NA I Exponential - Tribal Fusion I 22-Nov-13 I Remnant I Standard&quot;</value>
+            <value>&quot;4256794 - INV UK | Undertone - EE | REM&quot;</value>
+            <value>&quot;4268666 - INV UK | Undertone - Lenovo | DEC | REM&quot;</value>
+            <value>&quot;4272353 - INV UK | Undertone - HAL | DEC | REM&quot;</value>
+            <value>&quot;4273895 - INV-NA I Martini Media I KIA - Tablet Interstitial | 29-Oct-2013&quot;</value>
+            <value>&quot;4280837 - INV-NA I PulsePoint I Fixed CPM - Remnant | 03-Dec-2013&quot;</value>
+            <value>&quot;4295457 - INV-NA I Stacker Media I Fixed CPM - Remnant | Standard&quot;</value>
+            <value>&quot;4299643 - INV-NA I Martini Media I HSBC | 09-Dec-2013&quot;</value>
+            <value>&quot;4308450 - INV UK | Undertone - Shell | Dec | REM&quot;</value>
+            <value>&quot;4318517 - INV UK | Undertone - Lavazza | DEC | REM&quot;</value>
+            <value>&quot;4318658 - INV UK | Undertone - Shell standard | REM&quot;</value>
+            <value>&quot;4323877 - INV UK | Undertone - Zegna | REM&quot;</value>
+            <value>&quot;4337366 - INV-NA I Ad.com | US &amp; CA Remnant I Jan - June&quot;</value>
+            <value>&quot;4347052 - INV-NA I Capital One I Q1 | 01-Jan-2014 | Remnant&quot;</value>
+            <value>&quot;4371076 - INV UK | Undertone - Celebrity Cruises | Jan-Feb | REM&quot;</value>
+            <value>&quot;4375113 - INV UK | Undertone - HAL | UK &amp; AUS |  Jan-Feb | REM&quot;</value>
+            <value>&quot;4375161 - INV-NA I Advertising.com | 03-Jan-14 | Remnant | Viagra&quot;</value>
+            <value>&quot;4383318 - INV UK | Undertone - Tourism AUST | REM&quot;</value>
+            <value>&quot;4388203 - INV UK | Undertone - Tourism AUST | Non-Passback  | REM&quot;</value>
+            <value>&quot;4388271 - INV UK | Undertone - HAL | UK  Standard display | Jan-Feb | REM&quot;</value>
+            <value>&quot;4399520 - INV-NA I Advertising.com | 13-Jan-14 | Remnant | Alaska Airlines&quot;</value>
+            <value>&quot;4410939 - INV UK | Undertone | PFU | Jan-Feb | REM&quot;</value>
+            <value>&quot;4415233 - INV UK | Undertone - Infiniti | Jan-Feb | REM&quot;</value>
+            <value>&quot;4456215 - INV-NA I Core Digital | 24-Feb-14 | Remnant | Standard&quot;</value>
+            <value>&quot;4470850 - INV-NA I Martini Media I Korean Air | 01-Feb-14 | Remnant&quot;</value>
+            <value>&quot;ALL | Google AdExchange | Remnant | Standard&quot;</value>
+            <value>&quot;ALL | House Catch-All | Remnant | Standard&quot;</value>
+            <value>&quot;INV | 3 Interactive | 13-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | AdConion - STAXYN | 21-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | AdConion | 1-Mar-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Dianomi | 15-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Google AdExchange | Remnant | Standard&quot;</value>
+            <value>&quot;INV | NetSeer | 08-Mar-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Texzus Capital Ventures | 25-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV | Time Inc | 13-Feb-13 | Price Priority&quot;</value>
+            <value>&quot;INV-AdBlade&quot;</value>
+            <value>&quot;INV-ADX&quot;</value>
+            <value>&quot;INV-Dianomi&quot;</value>
+            <value>&quot;INV-IndustryBrains&quot;</value>
+            <value>&quot;INV-InfoLinks-Remnant-Standard&quot;</value>
+            <value>&quot;INV-NA I Criteo I BF/AF-Right-Multi-Pass I Standard&quot;</value>
+            <value>&quot;INV-NA I Dianomi I 09-July-14 I Remnant | Standard&quot;</value>
+            <value>&quot;INV-NA I Dianomi I Below-Content | Unlimited&quot;</value>
+            <value>&quot;INV-NA I FINMC | US/UK/AU/CA Text Links&quot;</value>
+            <value>&quot;INV-NA I Morningstar I 22-10-13 I Remnant&quot;</value>
+            <value>&quot;INV-NA I Quinstreet.com I  Remnant&quot;</value>
+            <value>&quot;INV-SHB130101-Remnant-Sharebuilder&quot;</value>
+            <value>&quot;INV-TEST&quot;</value>
+            <value>&quot;INV-VCM130128-Remnant-Standard&quot;</value>
+            <value>&quot;isocket order for: StockViews&quot;</value>
+            <value>&quot;Nadex Support&quot;</value>
+            <value>&quot;PR-UK TEST&quot;</value>
+            <value>&quot;SFD/INV | Prosper Technologies | 21-Mar-13 | Barter&quot;</value>
+            <value>&quot;Undertone Passback | REM&quot;</value>
+            <value>&quot;VCB | Lending Tree | CPL | Premium&quot;</value>
+            <value>&quot;VCB | NetSeer | 6-feb-13 | Price Priority&quot;</value>
+          </bin>
+          <bin value='&quot;3389784 - INV-NA I Advertising.com Remnant I 18-March-13 I Remnant&quot;'>
+            <value>&quot;3389784 - INV-NA I Advertising.com Remnant I 18-March-13 I Remnant&quot;</value>
+            <value>&quot;3399268 - INV-NA I Ad Karma Remnant I 20-March-13 I Pre_Roll&quot;</value>
+            <value>&quot;3679570 - INV-NA I Ad Tech US Remnant Test I 01-_June_2013&quot;</value>
+            <value>&quot;3707847 - INV-NA I Technorati Fixed CPM Campaign I 01-June_2013&quot;</value>
+            <value>&quot;3956596 - INV-NA | OpenX - Fixed CPM | 5-Sept-13 | US | Remnant&quot;</value>
+            <value>&quot;4299026 - INV-NA I Ybrant Digital I AUS Pre-Roll | 09-Dec-2013 | Remnant&quot;</value>
+            <value>&quot;4348702 - INV-NA I Merrill Edge I 1-Jan-14 I Premium I CPC&quot;</value>
+            <value>&quot;4388616 - INV-NA I Undertone US I 08-Jan-14 I Remnant I 2014&quot;</value>
+            <value>&quot;4474869 - INV UK | Undertone - Sky Go | REM&quot;</value>
+            <value>&quot;4493220 - INV-NA I Advertising.com I 10-Feb-14 | Remnant | Prudential Devil Campaign&quot;</value>
+            <value>&quot;4495794 - INV-NA I Fitapelli &amp; Kurta I 17-Feb-14 | Premium | CPC&quot;</value>
+            <value>&quot;4499050 - INV-NA I Adprime I 10-Feb-14 I Remnant I United Airlines&quot;</value>
+            <value>&quot;4511666 - INV-NA I Struq | 17-Mar-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4512026 - INV UK | Undertone - Scottish Widows | REMNANT&quot;</value>
+            <value>&quot;4523579 - INV-NA I Trade King I 1-Mar-14 I Premium I CPC&quot;</value>
+            <value>&quot;4548399 - INV UK | Undertone - HAL | AUS Standard display | Feb | REM&quot;</value>
+            <value>&quot;4561068 - INV-NA I Advertising.com I 28-Feb-14 | Remnant | Netflix&quot;</value>
+            <value>&quot;4569674 - INV UK | Undertone - FT Weekend | REM&quot;</value>
+            <value>&quot;4569871 - INV UK | Undertone - HAL | UK + AUS Standard display | Mar | REM&quot;</value>
+            <value>&quot;4571886 - INV-NA I MariMedia I 05-March-14 I Remnant | Standard&quot;</value>
+            <value>&quot;4576870 - INV-NA I Advertising.com I 05-Mar-14 | Remnant | Staples&quot;</value>
+            <value>&quot;4603642 - INV UK | Undertone - Santander | REM&quot;</value>
+            <value>&quot;4603726 - INV UK | Undertone - Santander Mortgage | REM&quot;</value>
+            <value>&quot;4617141 - INV UK | Undertone - Economist | Tablet | REM&quot;</value>
+            <value>&quot;4634000 - INV-NA I Capital One I 01-Apr-14 | Remnant | Q2&quot;</value>
+            <value>&quot;4658360 - INV UK | Undertone - 3 Mobile | REM&quot;</value>
+            <value>&quot;4664531 - INV UK | Undertone - Mitsubishi | REM&quot;</value>
+            <value>&quot;4665111 - INV-NA I Advertising.com I 01-Apr-14 | Remnant | BOA Halo&quot;</value>
+            <value>&quot;4685811 - INV UK | Undertone - NPower | April | REMNANT&quot;</value>
+            <value>&quot;4697547 - INV UK | Undertone - Jaguar | Apr-May | REM&quot;</value>
+            <value>&quot;4704206 - INV-NA I Adconion I 8-Apr-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4731345 - INV-NA I Markets.com I 1-May-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4757949 - INV UK | Undertone - Oracle 1 | REM&quot;</value>
+            <value>&quot;4757982 - INV UK | Undertone - Oracle 2 | REM&quot;</value>
+            <value>&quot;4783866 - INV-NA I Martini Media | 01-May-14 | Remnant | Korean Air&quot;</value>
+            <value>&quot;4806994 - INV UK | Undertone - FT | REM&quot;</value>
+            <value>&quot;4817442 - INV UK | Undertone - SKY | REM&quot;</value>
+            <value>&quot;4825593 - INV UK | Undertone - Morrisons | REMNANT&quot;</value>
+            <value>&quot;4831433 - INV-NA I Martini Media | 5-May-14 | Remnant | Bentley&quot;</value>
+            <value>&quot;4844007 - INV UK | Undertone - Sony | REMNANT&quot;</value>
+            <value>&quot;4857546 - INV-NA I ConsumerTrack GE Capital I 23-May-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4873673 - INV-NA I Markets.com I 01-June-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4877446 - INV UK | Undertone - Oracle HCM | Remnant&quot;</value>
+            <value>&quot;4961879 - INV-NA I Capital One I 01-July-14 | Remnant | Q3&quot;</value>
+            <value>&quot;4968433 - INV-NA I Advertising.com I 01-July-14 | Remnant | PNF Initiative&quot;</value>
+            <value>&quot;4969120 - INV UK | Undertone - Kelloggs M&amp;C | Remnant&quot;</value>
+            <value>&quot;4978884 - INV UK | Undertone M&amp;S Video | REMNANT&quot;</value>
+            <value>&quot;4987465 - INV-NA I Markets.com I 02-July-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4988950 - INV-NA I Top Option I 02-July-14 I Remnant I Standard&quot;</value>
+            <value>&quot;4991285 - INV-NA I Advertising.com I 02-July-14 | Remnant | BOA Halo&quot;</value>
+            <value>&quot;5070058 - INV-NA I Markets.com I 01-Aug-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5087391 - INV-NA I Adconion I 04-Aug-14 I Remnant I Porsche&quot;</value>
+            <value>&quot;5127139 - INV-NA I Broker Match I 25-Aug-14 I Remnant I CPC&quot;</value>
+            <value>&quot;5133597 - INV-NA I Advertising.com I 20-Aug-14 | Remnant | Lenovo&quot;</value>
+            <value>&quot;5157221 - INV-NA I Matomy I 28-Aug-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5157626 - INV-NA I Consumer Track I 10-Sep-14 I Remnant I Synchrony &amp; Ally&quot;</value>
+            <value>&quot;5170433 - INV-NA I Markets.com I 02-Sep-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5172289 - INV-NA I Casale Media I 03-Sep-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5194183 - INV-NA I Martini Media | 08-Sep-14 | Remnant | Lufthansa&quot;</value>
+            <value>&quot;5194208 - INV-NA I Adprime I 01-Sep-14 I Remnant I Ritz&quot;</value>
+            <value>&quot;5226545 - INV-NA I Adprime I 18-Sep-14 I Remnant I Barclays&quot;</value>
+            <value>&quot;5234147 - INV-NA I The Economist I 01-Oct-14 I Remnant | CPC&quot;</value>
+            <value>&quot;5259971 - INV-NA I Advertising.com I 26-Sep-14 | Remnant | Adobe&quot;</value>
+            <value>&quot;5262312 - INV-NA I Martini Media | 08-Sep-14 | Remnant | PFG&quot;</value>
+            <value>&quot;5263481 - INV-NA I Martini Media | 28-Oct-14 | Remnant | Emirates&quot;</value>
+            <value>&quot;5274510 - INV-NA I Capital One I 01-Oct-14 | Remnant | Q4&quot;</value>
+            <value>&quot;5274568 - INV-NA I Martini Media | 30-Sep-14 | Remnant | BMW&quot;</value>
+            <value>&quot;5279911 - INV-NA I Markets.com I 02-Oct-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5318736 - INV-NA I Advertising.com I 10-Oct-14 | Remnant | Porsche&quot;</value>
+            <value>&quot;5320104 - INV-NA I Consumer Track I 13-Oct-14 I Remnant I Synchrony&quot;</value>
+            <value>&quot;5328814 - INV-NA I Sharebuilder I 15-Oct-14 I Remnant I Q4&quot;</value>
+            <value>&quot;5331275 - INV-NA I IQ Adnet I 15-Oct-14 I Remnant I Babson College&quot;</value>
+            <value>&quot;5341087 - INV-NA I FXDD I 23-Oct-14 | Remnant | CPC&quot;</value>
+            <value>&quot;5360320 - INV-NA I Consumer Track I 23-Oct-14 I Remnant I Synchrony&quot;</value>
+            <value>&quot;5375352 - INV-NA I IQ Adnet I 27-Oct-14 I Remnant I Financial Professionals&quot;</value>
+            <value>&quot;5383374 - INV-NA I Adprime I 29-Oct-14 I Remnant I Economist&quot;</value>
+            <value>&quot;5397855 - INV-NA | Quinstreet | 10-Dec-14 | Premium | Interstitial&quot;</value>
+            <value>&quot;5401245 - INV-NA I Advertising.com I 04-Nov-14 | Remnant | Canada Health&quot;</value>
+            <value>&quot;5401553 - INV-NA I Consumer Track I 03-Nov-14 I Remnant I Synchrony November&quot;</value>
+            <value>&quot;5407175 - INV-NA I Adprime I 05-Nov-14 I Remnant I AXA&quot;</value>
+            <value>&quot;5420711 - INV-NA I Branovate I 10-Nov-14 I Remnant | Standard&quot;</value>
+            <value>&quot;5458100 - INV-NA I 152 Media I 24-Nov-14 I Remnant | Standard&quot;</value>
+            <value>&quot;5459440 - INV-NA | IMS | 20-Nov-14 | Remnant | Lux Auto&quot;</value>
+            <value>&quot;5474878 - INV-NA I Lin Digital | 25-Nov-14 | Remnant | Standard&quot;</value>
+            <value>&quot;5475030 - INV-NA I LoanMe I 03-Dec-14 I Remnant I Standard&quot;</value>
+            <value>&quot;5476154 - INV-NA I The Economist I 01-Dec-14 I Remnant | CPC&quot;</value>
+            <value>&quot;5490769 - INV-NA I Consumer Track I 01-Dec-14 I Remnant I Synchrony&quot;</value>
+            <value>&quot;5503688 - INV-NA I Velis Media I 05-Dec-14 I Remnant | Standard&quot;</value>
+            <value>&quot;5515140 - INV-NA I Martini Media | 08-Dec-14 | Remnant | Nationwide Healthcare&quot;</value>
+            <value>&quot;5518659 - INV-NA I Safecap Investments I 10-Dec-14 I Remnant I Standard&quot;</value>
+            <value>&quot;INV - Remnant Temp Porder | Ad.com Always On&quot;</value>
+            <value>&quot;INV - Remnant Temp Porder | Engage BDR&quot;</value>
+            <value>&quot;INV-NA | Advertising.com | 16-Dec-14 | Remnant | Always On&quot;</value>
+            <value>&quot;INV-NA I AdBistro I 26-Dec-14 I Remnant I Standard&quot;</value>
+            <value>&quot;INV-NA I Engage BDR I 16-Dec-14 | Remnant | Standard&quot;</value>
+            <value>&quot;INV-NA I Matomy I 01-Jan-15 I Remnant I Standard&quot;</value>
+          </bin>
+        </calculation>
+        <aliases>
+          <alias key='&quot;3187500 - INV-AdSense-Priority15&quot;' value='No Return Value' />
+          <alias key='&quot;3389784 - INV-NA I Advertising.com Remnant I 18-March-13 I Remnant&quot;' value='Remnant Direct' />
+          <alias key='&quot;TTW-ADX&quot;' value='Real Order' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' caption='Adexchangeclicks' datatype='integer' default-type='quantitative' layered='true' name='[adexchangeclicks]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adexchangeimpressions' datatype='integer' default-type='quantitative' layered='true' name='[adexchangeimpressions]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adexchangerevenue' datatype='real' default-type='quantitative' layered='true' name='[adexchangerevenue]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adserverclicks' datatype='integer' default-type='quantitative' layered='true' name='[adserverclicks]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adserverimpressions' datatype='integer' default-type='quantitative' layered='true' name='[adserverimpressions]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adserverrevenue' datatype='real' default-type='quantitative' layered='true' name='[adserverrevenue]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Count' caption='Adunit1' datatype='string' default-type='nominal' layered='true' name='[adunit1]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Count' caption='Adunit2' datatype='string' default-type='nominal' layered='true' name='[adunit2]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Count' caption='Adunit3' datatype='string' default-type='nominal' layered='true' name='[adunit3]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Count' caption='Adunit4' datatype='string' default-type='nominal' layered='true' name='[adunit4]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Count' caption='Adunit5' datatype='string' default-type='nominal' layered='true' name='[adunit5]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adunitid (Dim Adunit)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[adunitid (dim_adunit)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Adunitid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[adunitid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Advertiser' datatype='string' default-type='nominal' layered='true' name='[advertiser]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Advertiserid (Dim Advertiser)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[advertiserid (dim_advertiser)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Advertiserid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[advertiserid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Contractedquantity' datatype='integer' default-type='ordinal' layered='true' name='[contractedquantity]' pivot='key' role='dimension' type='ordinal' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Contractedquantityid (Dim Contractedquantity)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[contractedquantityid (dim_contractedquantity)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Contractedquantityid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[contractedquantityid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Country' datatype='string' default-type='nominal' layered='true' name='[country]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Countryid (Dim Country)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[countryid (dim_country)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Countryid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[countryid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Creative' datatype='string' default-type='nominal' layered='true' name='[creative]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Creativeid (Dim Creative)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[creativeid (dim_creative)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Creativeid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[creativeid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Creativesize' datatype='string' default-type='nominal' layered='true' name='[creativesize]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Creativesizeid (Dim Creativesize)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[creativesizeid (dim_creativesize)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Creativesizeid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[creativesizeid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Id' datatype='integer' default-type='ordinal' hidden='true' layered='true' name='[id]' pivot='key' role='dimension' type='ordinal' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Lineitem' datatype='string' default-type='nominal' layered='true' name='[lineitem]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Lineitemid (Dim Lineitem)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[lineitemid (dim_lineitem)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Lineitemid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[lineitemid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Lineitempriority' datatype='integer' default-type='ordinal' layered='true' name='[lineitempriority]' pivot='key' role='dimension' type='ordinal' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Lineitempriorityid (Dim Lineitempriority)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[lineitempriorityid (dim_lineitempriority)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Lineitempriorityid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[lineitempriorityid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Lineitemtype' datatype='string' default-type='nominal' layered='true' name='[lineitemtype]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Lineitemtypeid (Dim Lineitemtype)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[lineitemtypeid (dim_lineitemtype)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Lineitemtypeid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[lineitemtypeid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Month' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[month]' pivot='key' role='dimension' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Order' datatype='string' default-type='nominal' layered='true' name='[order]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Orderid (Dim Order)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[orderid (dim_order)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Orderid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[orderid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Quarter' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[quarter]' pivot='key' role='dimension' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Rate' datatype='real' default-type='ordinal' layered='true' name='[rate]' pivot='key' role='dimension' type='ordinal' user-datatype='real' visual-totals='Default' />
+      <column aggregation='Sum' caption='Rateid (Dim Rate)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[rateid (dim_rate)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Rateid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[rateid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Count' caption='Saleperson' datatype='string' default-type='nominal' layered='true' name='[saleperson]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+      <column aggregation='Sum' caption='Salepersonid (Dim Saleperson)' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[salepersonid (dim_saleperson)]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Sum' caption='Salepersonid' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[salepersonid]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <column aggregation='Year' caption='Date' datatype='date' default-type='ordinal' layered='true' name='[timeid]' pivot='key' role='dimension' type='ordinal' user-datatype='date' visual-totals='Default' />
+      <column aggregation='Count' caption='Year' datatype='integer' default-type='quantitative' hidden='true' layered='true' name='[year]' pivot='key' role='dimension' type='quantitative' user-datatype='integer' visual-totals='Default' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='MTD Orders'>
+      <repository-location derived-from='http://tableau001.vcbrands.net/workbooks/DFP-MTDOrders/MTDOrders?rev=' id='MTDOrders' path='/t/investopedia/workbooks/DFP-MTDOrders' revision='' site='investopedia' />
+      <table>
+        <view>
+          <datasources>
+            <datasource name='dfp (extract)' />
+          </datasources>
+          <datasource-dependencies datasource='dfp (extract)'>
+            <column caption='TotalImpressions' datatype='integer' name='[Calculation_1880123211601074]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[adexchangeimpressions]+[adserverimpressions]' scope-isolation='false' />
+            </column>
+            <column aggregation='Sum' caption='Adexchangeclicks' datatype='integer' default-type='quantitative' layered='true' name='[adexchangeclicks]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+            <column aggregation='Sum' caption='Adexchangeimpressions' datatype='integer' default-type='quantitative' layered='true' name='[adexchangeimpressions]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+            <column aggregation='Sum' caption='Adexchangerevenue' datatype='real' default-type='quantitative' layered='true' name='[adexchangerevenue]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+            <column aggregation='Sum' caption='Adserverclicks' datatype='integer' default-type='quantitative' layered='true' name='[adserverclicks]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+            <column aggregation='Sum' caption='Adserverimpressions' datatype='integer' default-type='quantitative' layered='true' name='[adserverimpressions]' pivot='key' role='measure' type='quantitative' user-datatype='integer' visual-totals='Default' />
+            <column aggregation='Sum' caption='Adserverrevenue' datatype='real' default-type='quantitative' layered='true' name='[adserverrevenue]' pivot='key' role='measure' type='quantitative' user-datatype='real' visual-totals='Default' />
+            <column aggregation='Count' caption='Adunit1' datatype='string' default-type='nominal' layered='true' name='[adunit1]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Adunit2' datatype='string' default-type='nominal' layered='true' name='[adunit2]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Adunit3' datatype='string' default-type='nominal' layered='true' name='[adunit3]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Adunit4' datatype='string' default-type='nominal' layered='true' name='[adunit4]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Adunit5' datatype='string' default-type='nominal' layered='true' name='[adunit5]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Advertiser' datatype='string' default-type='nominal' layered='true' name='[advertiser]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Sum' caption='Contractedquantity' datatype='integer' default-type='ordinal' layered='true' name='[contractedquantity]' pivot='key' role='dimension' type='ordinal' user-datatype='integer' visual-totals='Default' />
+            <column aggregation='Count' caption='Country' datatype='string' default-type='nominal' layered='true' name='[country]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Creative' datatype='string' default-type='nominal' layered='true' name='[creative]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Creativesize' datatype='string' default-type='nominal' layered='true' name='[creativesize]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Lineitem' datatype='string' default-type='nominal' layered='true' name='[lineitem]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Count' caption='Lineitemtype' datatype='string' default-type='nominal' layered='true' name='[lineitemtype]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column-instance column='[adunit1]' derivation='None' name='[none:adunit1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[adunit2]' derivation='None' name='[none:adunit2:nk]' pivot='key' type='nominal' />
+            <column-instance column='[adunit3]' derivation='None' name='[none:adunit3:nk]' pivot='key' type='nominal' />
+            <column-instance column='[adunit4]' derivation='None' name='[none:adunit4:nk]' pivot='key' type='nominal' />
+            <column-instance column='[adunit5]' derivation='None' name='[none:adunit5:nk]' pivot='key' type='nominal' />
+            <column-instance column='[advertiser]' derivation='None' name='[none:advertiser:nk]' pivot='key' type='nominal' />
+            <column-instance column='[contractedquantity]' derivation='None' name='[none:contractedquantity:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[creative]' derivation='None' name='[none:creative:nk]' pivot='key' type='nominal' />
+            <column-instance column='[creativesize]' derivation='None' name='[none:creativesize:nk]' pivot='key' type='nominal' />
+            <column-instance column='[lineitem]' derivation='None' name='[none:lineitem:nk]' pivot='key' type='nominal' />
+            <column-instance column='[lineitemtype]' derivation='None' name='[none:lineitemtype:nk]' pivot='key' type='nominal' />
+            <column-instance column='[order]' derivation='None' name='[none:order:nk]' pivot='key' type='nominal' />
+            <column-instance column='[rate]' derivation='None' name='[none:rate:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[saleperson]' derivation='None' name='[none:saleperson:nk]' pivot='key' type='nominal' />
+            <column-instance column='[timeid]' derivation='None' name='[none:timeid:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Count' caption='Order' datatype='string' default-type='nominal' layered='true' name='[order]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column aggregation='Sum' caption='Rate' datatype='real' default-type='ordinal' layered='true' name='[rate]' pivot='key' role='dimension' type='ordinal' user-datatype='real' visual-totals='Default' />
+            <column aggregation='Count' caption='Saleperson' datatype='string' default-type='nominal' layered='true' name='[saleperson]' pivot='key' role='dimension' type='nominal' user-datatype='string' visual-totals='Default' />
+            <column-instance column='[Calculation_1880123211601074]' derivation='Sum' name='[sum:Calculation_1880123211601074:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[adexchangeclicks]' derivation='Sum' name='[sum:adexchangeclicks:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[adexchangeimpressions]' derivation='Sum' name='[sum:adexchangeimpressions:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[adexchangerevenue]' derivation='Sum' name='[sum:adexchangerevenue:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[adserverclicks]' derivation='Sum' name='[sum:adserverclicks:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[adserverimpressions]' derivation='Sum' name='[sum:adserverimpressions:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[adserverrevenue]' derivation='Sum' name='[sum:adserverrevenue:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Year' caption='Date' datatype='date' default-type='ordinal' layered='true' name='[timeid]' pivot='key' role='dimension' type='ordinal' user-datatype='date' visual-totals='Default' />
+            <column-instance column='[timeid]' derivation='Year' name='[yr:timeid:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[dfp (extract)].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[dfp (extract)].[sum:Calculation_1880123211601074:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[dfp (extract)].[sum:adserverimpressions:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[dfp (extract)].[sum:adserverclicks:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[dfp (extract)].[sum:adserverrevenue:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[dfp (extract)].[sum:adexchangeimpressions:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[dfp (extract)].[sum:adexchangeclicks:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[dfp (extract)].[sum:adexchangerevenue:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[dfp (extract)].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[dfp (extract)].[sum:Calculation_1880123211601074:qk]&quot;</bucket>
+              <bucket>&quot;[dfp (extract)].[sum:adserverimpressions:qk]&quot;</bucket>
+              <bucket>&quot;[dfp (extract)].[sum:adserverclicks:qk]&quot;</bucket>
+              <bucket>&quot;[dfp (extract)].[sum:adserverrevenue:qk]&quot;</bucket>
+              <bucket>&quot;[dfp (extract)].[sum:adexchangeimpressions:qk]&quot;</bucket>
+              <bucket>&quot;[dfp (extract)].[sum:adexchangeclicks:qk]&quot;</bucket>
+              <bucket>&quot;[dfp (extract)].[sum:adexchangerevenue:qk]&quot;</bucket>
+            </dictionary>
+          </sort>
+          <filter class='categorical' column='[dfp (extract)].[none:adunit1:nk]'>
+            <groupfilter function='member' level='[none:adunit1:nk]' member='&quot;INV-NA&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[dfp (extract)].[none:country:nk]'>
+            <groupfilter function='member' level='[none:country:nk]' member='&quot;USA&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[dfp (extract)].[none:saleperson:nk]'>
+            <groupfilter function='level-members' level='[none:saleperson:nk]' />
+          </filter>
+          <filter class='quantitative' column='[dfp (extract)].[none:timeid:qk]' included-values='in-range'>
+            <min>#2015-01-01#</min>
+            <max>#2015-01-02#</max>
+          </filter>
+          <filter class='categorical' column='[dfp (extract)].[yr:timeid:ok]'>
+            <groupfilter function='member' level='[yr:timeid:ok]' member='2015' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[dfp (extract)].[none:country:nk]</column>
+            <column>[dfp (extract)].[none:adunit1:nk]</column>
+            <column>[dfp (extract)].[yr:timeid:ok]</column>
+            <column>[dfp (extract)].[none:timeid:qk]</column>
+            <column>[dfp (extract)].[none:saleperson:nk]</column>
+            <column>[dfp (extract)].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[dfp (extract)].[sum:adserverrevenue:qk]' value='c&quot;$&quot;#,##0.00;(&quot;$&quot;#,##0.00)' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[dfp (extract)].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([dfp (extract)].[none:advertiser:nk] / ([dfp (extract)].[none:lineitem:nk] / ([dfp (extract)].[none:order:nk] / ([dfp (extract)].[none:adunit2:nk] / ([dfp (extract)].[none:adunit3:nk] / ([dfp (extract)].[none:adunit4:nk] / ([dfp (extract)].[none:adunit5:nk] / ([dfp (extract)].[none:creative:nk] / ([dfp (extract)].[none:creativesize:nk] / ([dfp (extract)].[none:lineitem:nk] / ([dfp (extract)].[none:saleperson:nk] / ([dfp (extract)].[none:rate:ok] / ([dfp (extract)].[none:lineitemtype:nk] / [dfp (extract)].[none:contractedquantity:ok])))))))))))))</rows>
+        <cols>[dfp (extract)].[:Measure Names]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='1' name='MTD Orders'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='checkdropdown' param='[dfp (extract)].[none:country:nk]' type='filter' />
+            <card mode='checkdropdown' param='[dfp (extract)].[none:adunit1:nk]' type='filter' />
+            <card mode='checkdropdown' param='[dfp (extract)].[yr:timeid:ok]' type='filter' values='relevant' />
+            <card param='[dfp (extract)].[none:timeid:qk]' show-null-ctrls='false' type='filter' values='relevant' />
+            <card mode='checkdropdown' param='[dfp (extract)].[none:saleperson:nk]' type='filter' values='relevant' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[dfp (extract)].[none:adunit1:nk]</field>
+          <field>[dfp (extract)].[none:adunit2:nk]</field>
+          <field>[dfp (extract)].[none:adunit3:nk]</field>
+          <field>[dfp (extract)].[none:adunit4:nk]</field>
+          <field>[dfp (extract)].[none:adunit5:nk]</field>
+          <field>[dfp (extract)].[none:advertiser:nk]</field>
+          <field>[dfp (extract)].[none:contractedquantity:ok]</field>
+          <field>[dfp (extract)].[none:creative:nk]</field>
+          <field>[dfp (extract)].[none:creativesize:nk]</field>
+          <field>[dfp (extract)].[none:lineitem:nk]</field>
+          <field>[dfp (extract)].[none:lineitemtype:nk]</field>
+          <field>[dfp (extract)].[none:order:nk]</field>
+          <field>[dfp (extract)].[none:rate:ok]</field>
+          <field>[dfp (extract)].[none:saleperson:nk]</field>
+          <field>[dfp (extract)].[none:timeid:qk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='MTD Orders' width='192'>&#10;      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&#10;      3h/g/wNEk/DNfHLjNQAAAABJRU5ErkJggg==&#10;    </thumbnail>
+  </thumbnails>
+</workbook>
