@@ -122,7 +122,7 @@ public class DownLoadBook {
 				"tanj",
 				"123!@#QWEqwe",
 				"https://external-analyze.ask.com/t/investopedia/workbooks/Masterdownload?format=twb&errfmt=html",
-				"./backup");
+				args[0]);
 		dlb.DownLoadfile();
 	}
 
